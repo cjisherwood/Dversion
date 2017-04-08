@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
 
         if (counter > limit)
         {
-            limit *= 2;
+            limit += 3600;
             //need to expand array to origin[limit, 5];
         }
 
