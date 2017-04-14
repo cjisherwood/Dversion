@@ -3,11 +3,12 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    public Transform player;
+    
     public float speed;
     public ulong counter;
 	public GameObject clone;
 
+    private Transform player;
     private ulong limit;
     private bool[,] origin;
     public bool[,] originForClone;
@@ -73,9 +74,4 @@ public class Player : MonoBehaviour {
 	{
 		return counter;
 	}
-
-    private void CopyArray()
-    {
-        //stuff
-    }
 }

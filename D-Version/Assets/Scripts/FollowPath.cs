@@ -14,7 +14,7 @@ public class FollowPath : MonoBehaviour {
 		player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 		speed = 0.1f;//FIX
 
-		origin = player.GetComponent<Player> ().originForClone;
+		origin = player.GetComponent<Player>().originForClone;
 	}
 	
 	// Update is called once per frame
@@ -46,7 +46,6 @@ public class FollowPath : MonoBehaviour {
 			//Reset clone to level start
 			gameObject.GetComponent<Transform>().position = new Vector3 (0, 3, 0);
 			counter = 0;
-		}
-			
+		}	
 	}
 }
