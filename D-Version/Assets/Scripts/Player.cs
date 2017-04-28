@@ -88,19 +88,45 @@ public class Player : MonoBehaviour {
 		return counter;
 	}
 
-    public void DestroyClone()
-    {
-        numOfClones--;
-    }
-
     public void ResetLevel()
     {
         //Reset player to level start
-        player.position = new Vector3(0, 3, 0);
+        player.position = Vector3.zero;
         counter = 0;
         limit = 3600;
         originForClone = origin;
         origin = new bool[limit, 5];
+        camera.position = Vector3.back;
+    }
+
+    //NEEDS FIXED
+    public int CalcNextCloneNum()
+    {
+        GameObject[] clones;
+        int nextClone = 0;
+        clones = GameObject.FindGameObjectsWithTag("Clone");
+
+        //If there is no clones yet, our next clone is the first.
+        if (clones.Length == 1)
+        {
+            nextClone = 1;
+            return nextClone;
+        }
+        else //If there is a clone
+        {
+            foreach (GameObject clone in clones)
+            {
+                //Check clones in order from the first to the last until we find a missing clone,
+                //set that as our next clone.
+                if (clone.transform.position.z == -1)
+                {
+                    nextClone = clone.GetComponent<FollowPath>().cloneNum;
+                    return nextClone;
+                }
+                nextClone++;
+            }
+        }
+        return nextClone;
     }
 
     public void CreateClone()
@@ -110,29 +136,30 @@ public class Player : MonoBehaviour {
         if (numOfClones < cloneLimit)
         {
             //Add clone
-            Instantiate(clone, (Vector3.up * 3), Quaternion.identity);
+            Instantiate(clone, (Vector3.zero), Quaternion.identity);
             numOfClones++;
+        }
+        else if (CalcNextCloneNum() <= cloneLimit)
+        {
+            GameObject[] clones;
+
+            clones = GameObject.FindGameObjectsWithTag("Clone");
+
+            int nextClone = CalcNextCloneNum();
+
+            foreach (GameObject clone in clones)
+            {
+                if (clone.GetComponent<FollowPath>().cloneNum == nextClone)
+                {
+                    clone.transform.Translate(0, 0, 1);
+                    clone.GetComponent<FollowPath>().origin = originForClone;
+                }
+            }
+            
         }
         else
         {
             Debug.Log("Clone limit reached. Clone not created.");
         }
-    }
-
-    public int CalcNextCloneNum()
-    {
-        GameObject[] clones;
-        int nextClone = 10;
-
-        clones = GameObject.FindGameObjectsWithTag("Clone");
-
-        foreach(GameObject clone in clones)
-        {
-            if (nextClone > clone.GetComponent<FollowPath>().cloneNum && (clone.GetComponent<FollowPath>().cloneNum + 1) != nextClone)
-                nextClone = clone.GetComponent<FollowPath>().cloneNum + 1;
-        }
-
-        Debug.Log(nextClone);
-        return nextClone;
     }
 }

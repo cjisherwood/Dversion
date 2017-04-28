@@ -3,24 +3,22 @@ using System.Collections;
 
 public class FollowPath : MonoBehaviour {
 
+    GameObject[] clones;
     public int cloneNum;
-    private bool[,] origin;
+    public bool[,] origin;
     private Player player;
-	private ulong counter;
+	public ulong counter;
 	private float speed;
     private string input;
-    private GameObject[] clones;
 
     // Use this for initialization
     void Start ()
     {
-        Debug.Log("Checking clone num.");
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 		speed = 0.05f;//FIX
-        clones = GameObject.FindGameObjectsWithTag("Clone");
 
 		origin = player.GetComponent<Player>().originForClone;
-        cloneNum = player.GetComponent<Player>().numOfClones; //player.GetComponent<Player>().CalcNextCloneNum();
+        cloneNum = player.GetComponent<Player>().CalcNextCloneNum();
 	}
 	
 	// Update is called once per frame
@@ -52,7 +50,10 @@ public class FollowPath : MonoBehaviour {
         if (Input.GetKeyDown("r"))
         {
             //Reset clone to level start
-            gameObject.GetComponent<Transform>().position = new Vector3(0, 3, 0);
+            if (gameObject.transform.position.z == -1)
+                gameObject.GetComponent<Transform>().position = Vector3.back;
+            else
+                gameObject.GetComponent<Transform>().position = Vector3.zero;
             counter = 0;
         }
 
@@ -97,17 +98,28 @@ public class FollowPath : MonoBehaviour {
 
     private void Numbers(int num)
     {
+        clones = GameObject.FindGameObjectsWithTag("Clone");
+
         if (cloneNum == num)
         {
             foreach (GameObject clone in clones)
             {
                 //Reset clone to level start
-                clone.GetComponent<Transform>().position = new Vector3(0, 3, 0);
-                counter = 0;
+                if(clone.transform.position.z == -1)
+                    clone.GetComponent<Transform>().position = Vector3.back;
+                else
+                    clone.GetComponent<Transform>().position = Vector3.zero;
+                Debug.Log(clone.GetComponent<FollowPath>().cloneNum);
+                clone.GetComponent<FollowPath>().counter = 0;
             }
             player.ResetLevel();
-            GameObject.Destroy(gameObject, 0);
-            player.DestroyClone();
+            Debug.Log("Bye bye!");
+            DestroyClone();
         }
+    }
+
+    private void DestroyClone()
+    {
+        gameObject.GetComponent<Transform>().Translate(0, 0, -1);
     }
 }
