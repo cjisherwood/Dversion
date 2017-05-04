@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.4.0</string>
         <key>fileName</key>
-        <string>G:/Dversion/Aaron/Arron_Left.tps</string>
+        <string>D:/Dversion/Aaron/Arron_Left.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -150,7 +150,7 @@
             <key>datafile</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>Aaron_Left.tpsheet</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -199,7 +199,6 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Arron_Left.png</key>
             <key type="filename">Arron_Left_Walking1.png</key>
             <key type="filename">Arron_Left_Walking2.png</key>
             <key type="filename">Arron_Left_Walking3.png</key>
@@ -223,7 +222,6 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>Arron_Left.png</filename>
             <filename>Arron_Left_Walking1.png</filename>
             <filename>Arron_Left_Walking2.png</filename>
             <filename>Arron_Left_Walking3.png</filename>
