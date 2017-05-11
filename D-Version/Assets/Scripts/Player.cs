@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO.Ports;
 
 public class Player : MonoBehaviour {
+
+    //Added declaration of Serial Port
+    SerialPort sp = new SerialPort("COM3", 9600);
 
     public Transform camera;
 
@@ -18,6 +22,10 @@ public class Player : MonoBehaviour {
 
     void Start () 
 	{
+        //Initiallized Serial Port
+        sp.Open();
+        sp.ReadTimeout = 1;
+
 		player = gameObject.GetComponent<Transform>();
 
 		limit = 3600;
@@ -26,41 +34,55 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
-        //Player controls
-        if (Input.GetKey("w") || Input.GetKey("up"))
+        if (sp.IsOpen)
         {
-            origin[counter, 0] = true;
-            player.Translate(0, speed, 0);
-            if(player.position.y - camera.position.y > 2)
+            try
             {
-                camera.Translate(0, speed, 0);
+                MovePlayerArduino(sp.ReadByte());
+            }
+            catch (System.Exception)
+            {
+
             }
         }
-        if (Input.GetKey("a") || Input.GetKey("left"))
+        else
         {
-            origin[counter, 1] = true;
-            player.Translate(-speed, 0, 0);
-            if (player.position.x - camera.position.x < -3.5)
+            //Player controls
+            if (Input.GetKey("w") || Input.GetKey("up"))
             {
-                camera.Translate(-speed, 0, 0);
+                origin[counter, 0] = true;
+                player.Translate(0, speed, 0);
+                if (player.position.y - camera.position.y > 2)
+                {
+                    camera.Translate(0, speed, 0);
+                }
             }
-        }
-        if (Input.GetKey("s") || Input.GetKey("down"))
-        {
-            origin[counter, 2] = true;
-            player.Translate(0, -speed, 0);
-            if (player.position.y - camera.position.y < -2)
+            if (Input.GetKey("a") || Input.GetKey("left"))
             {
-                camera.Translate(0, -speed, 0);
+                origin[counter, 1] = true;
+                player.Translate(-speed, 0, 0);
+                if (player.position.x - camera.position.x < -3.5)
+                {
+                    camera.Translate(-speed, 0, 0);
+                }
             }
-        }
-        if (Input.GetKey("d") || Input.GetKey("right"))
-        {
-            origin[counter, 3] = true;
-            player.Translate(speed, 0, 0);
-            if (player.position.x - camera.position.x > 3.5)
+            if (Input.GetKey("s") || Input.GetKey("down"))
             {
-                camera.Translate(speed, 0, 0);
+                origin[counter, 2] = true;
+                player.Translate(0, -speed, 0);
+                if (player.position.y - camera.position.y < -2)
+                {
+                    camera.Translate(0, -speed, 0);
+                }
+            }
+            if (Input.GetKey("d") || Input.GetKey("right"))
+            {
+                origin[counter, 3] = true;
+                player.Translate(speed, 0, 0);
+                if (player.position.x - camera.position.x > 3.5)
+                {
+                    camera.Translate(speed, 0, 0);
+                }
             }
         }
 
@@ -72,6 +94,49 @@ public class Player : MonoBehaviour {
             //need to expand array to origin[limit, 5];
         }
 
+    }
+
+    private void MovePlayerArduino(int i)
+    {
+        //Player controls with NES controller
+        switch (i)
+        {
+            case 0:
+                origin[counter, 0] = true;
+                player.Translate(0, speed, 0);
+                if (player.position.y - camera.position.y > 2)
+                {
+                    camera.Translate(0, speed, 0);
+                }
+                break;
+            case 1:
+                origin[counter, 3] = true;
+                player.Translate(speed, 0, 0);
+                if (player.position.x - camera.position.x > 3.5)
+                {
+                    camera.Translate(speed, 0, 0);
+                }
+                break;
+            case 2:
+                origin[counter, 2] = true;
+                player.Translate(0, -speed, 0);
+                if (player.position.y - camera.position.y < -2)
+                {
+                    camera.Translate(0, -speed, 0);
+                }
+                break;
+            case 3:
+                origin[counter, 1] = true;
+                player.Translate(-speed, 0, 0);
+                if (player.position.x - camera.position.x < -3.5)
+                {
+                    camera.Translate(-speed, 0, 0);
+                }
+                break;
+            default:
+                Debug.Log("Default case!");
+                break;
+        }
     }
 
     private void Update()
