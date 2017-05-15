@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -8,6 +9,9 @@ public class Player : MonoBehaviour {
     public float speed;
     public ulong counter;
 	public GameObject clone;
+
+    public GameObject item;
+    public GameObject temp; //DELETE
 
     private Transform player;
     public int numOfClones;
@@ -19,9 +23,10 @@ public class Player : MonoBehaviour {
     void Start () 
 	{
 		player = gameObject.GetComponent<Transform>();
+        item = player.gameObject;
 
 		limit = 3600;
-        origin = new bool[limit, 5];
+        origin = new bool[limit, 6];
     }
 
     void FixedUpdate()
@@ -63,6 +68,15 @@ public class Player : MonoBehaviour {
                 camera.Translate(speed, 0, 0);
             }
         }
+        if (Input.GetKey("e") || Input.GetKey("enter"))
+        {
+            origin[counter, 4] = true;
+        }
+        if (Input.GetKey("q"))
+        {
+            origin[counter, 5] = true;
+            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
+        }
 
         counter++;
 
@@ -91,11 +105,12 @@ public class Player : MonoBehaviour {
     public void ResetLevel()
     {
         //Reset player to level start
+        temp.transform.position = new Vector3(-2, 2, 0);
         player.position = Vector3.zero;
         counter = 0;
         limit = 3600;
         originForClone = origin;
-        origin = new bool[limit, 5];
+        origin = new bool[limit, 6];
         camera.position = Vector3.back;
     }
 

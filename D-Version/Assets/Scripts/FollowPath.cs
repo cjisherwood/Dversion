@@ -11,11 +11,15 @@ public class FollowPath : MonoBehaviour {
 	private float speed;
     private string input;
 
+    public GameObject item;
+
     // Use this for initialization
     void Start ()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 		speed = 0.05f;//FIX
+
+        item = gameObject;
 
 		origin = player.GetComponent<Player>().originForClone;
         cloneNum = player.GetComponent<Player>().CalcNextCloneNum();
@@ -40,6 +44,14 @@ public class FollowPath : MonoBehaviour {
 		{
 			gameObject.GetComponent<Transform>().Translate(speed, 0, 0);
 		}
+        if (origin[counter, 4])
+        {
+            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
+        }
+        if (origin[counter, 5])
+        {
+            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
+        }
 
 		counter++;
 
