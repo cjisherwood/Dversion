@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
 {
     public GameObject ExitMenu;
     public GameObject OptionsMenu;
+    public GameObject testerCube;
 
     public Button PlayButton;
     public Button OptionsButton;
@@ -27,9 +28,11 @@ public class MenuController : MonoBehaviour
     #region Options Methods
     public void LoadOptions()
     {
-        PlayButton.enabled = false;
-        ExitButton.enabled = false;
-        OptionsButton.enabled = false;
+        PlayButton.interactable = false;
+        ExitButton.interactable = false;
+        OptionsButton.interactable = false;
+
+        testerCube.transform.Translate(Vector3.up * Time.deltaTime);
 
         OptionsMenu.SetActive(true);
     }
@@ -37,14 +40,14 @@ public class MenuController : MonoBehaviour
     {
         Screen.fullScreen = !Screen.fullScreen;
     }
-    #endregion Options Methods
+#endregion Options Methods
 
-    #region Exit Methods
-    public void LoadExit()
+#region Exit Methods
+public void LoadExit()
     {
-        PlayButton.enabled = false;
-        ExitButton.enabled = false;
-        OptionsButton.enabled = false;
+        PlayButton.interactable = false;
+        ExitButton.interactable = false;
+        OptionsButton.interactable = false;
 
         ExitMenu.SetActive(true);
     }
@@ -58,9 +61,9 @@ public class MenuController : MonoBehaviour
 
     public void ExitNoButton()
     {
-        PlayButton.enabled = true;
-        ExitButton.enabled = true;
-        OptionsButton.enabled = true;
+        PlayButton.interactable = true;
+        ExitButton.interactable = true;
+        OptionsButton.interactable = true;
 
         ExitMenu.SetActive(false);
     }
