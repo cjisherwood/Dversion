@@ -6,18 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject ExitMenu;
-    public GameObject OptionsMenu;
-    public GameObject testerCube;
+    public GameObject exitMenu;
+    public GameObject optionsMenu;
 
-    public Button PlayButton;
-    public Button OptionsButton;
-    public Button ExitButton;
+    public Button playButton;
+    public Button optionsButton;
+    public Button exitButton;
+
+    public Toggle fullScreenMode;
 
     void Start()
     {
-        ExitMenu.SetActive(false);
-        OptionsMenu.SetActive(false);
+        exitMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+
+        if (Screen.fullScreen)
+        {
+            fullScreenMode.isOn = true;
+        }
+        else if (!Screen.fullScreen)
+        {
+            fullScreenMode.isOn = false;
+        }
+
+        //Screen.fullScreen = false;
     }
 
     public void LoadScene(string sceneNum)
@@ -28,28 +40,35 @@ public class MenuController : MonoBehaviour
     #region Options Methods
     public void LoadOptions()
     {
-        PlayButton.interactable = false;
-        ExitButton.interactable = false;
-        OptionsButton.interactable = false;
+        playButton.interactable = false;
+        exitButton.interactable = false;
+        optionsButton.interactable = false;
 
-        testerCube.transform.Translate(Vector3.up * Time.deltaTime);
-
-        OptionsMenu.SetActive(true);
+        optionsMenu.SetActive(true);
     }
     public void FullScreen()
     {
-        Screen.fullScreen = !Screen.fullScreen;
+        fullScreenMode.isOn = !fullScreenMode.isOn;
+    }
+
+    public void BackButton()
+    {
+        playButton.interactable = true;
+        exitButton.interactable = true;
+        optionsButton.interactable = true;
+
+        optionsMenu.SetActive(false);
     }
 #endregion Options Methods
 
 #region Exit Methods
 public void LoadExit()
     {
-        PlayButton.interactable = false;
-        ExitButton.interactable = false;
-        OptionsButton.interactable = false;
+        playButton.interactable = false;
+        exitButton.interactable = false;
+        optionsButton.interactable = false;
 
-        ExitMenu.SetActive(true);
+        exitMenu.SetActive(true);
     }
 
     public void ExitYesButton()
@@ -61,11 +80,11 @@ public void LoadExit()
 
     public void ExitNoButton()
     {
-        PlayButton.interactable = true;
-        ExitButton.interactable = true;
-        OptionsButton.interactable = true;
-
-        ExitMenu.SetActive(false);
+        playButton.interactable = true;
+        exitButton.interactable = true;
+        optionsButton.interactable = true;
+    
+        exitMenu.SetActive(false);
     }
     #endregion Exit Methods
 }
