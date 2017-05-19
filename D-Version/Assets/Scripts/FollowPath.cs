@@ -1,50 +1,57 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowPath : MonoBehaviour
-{
+public class FollowPath : MonoBehaviour {
+
     GameObject[] clones;
     public int cloneNum;
     public bool[,] origin;
     private Player player;
-    public ulong counter;
-    private float speed;
+	public ulong counter;
+	private float speed;
     private string input;
+    private Vector2 velocity;
+    private Rigidbody2D rb;
 
     public GameObject item;
 
     // Use this for initialization
-    void Start()
+    void Start ()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+		speed = 0.05f;//FIX
+        rb = gameObject.GetComponent<Rigidbody2D>();
 
-        speed = 0.05f;//FIX
-        
         item = gameObject;
+
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 
         origin = player.GetComponent<Player>().originForClone;
         cloneNum = player.GetComponent<Player>().CalcNextCloneNum();
-    }
-    
-    // Update is called once per frame
-    void FixedUpdate()
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate ()
     {
-        if (origin[counter, 0])
-        {
-            gameObject.GetComponent<Transform>().Translate(0, speed, 0);
+		if (origin[counter, 0])
+		{           
+            velocity += Vector2.up * speed;
         }
-        if (origin[counter, 1])
-        {
-            gameObject.GetComponent<Transform>().Translate(-speed, 0, 0);
+		if (origin[counter, 1])
+		{
+            velocity += Vector2.left * speed;
         }
-        if (origin[counter, 2])
-        {
-            gameObject.GetComponent<Transform>().Translate(0, -speed, 0);
+		if (origin[counter, 2])
+		{
+            velocity += Vector2.down * speed;
         }
-        if (origin[counter, 3])
-        {
-            gameObject.GetComponent<Transform>().Translate(speed, 0, 0);
+		if (origin[counter, 3])
+		{
+            velocity += Vector2.right * speed;
         }
+        rb.MovePosition(rb.position + velocity);
+        velocity = Vector2.zero;
+
         if (origin[counter, 4])
         {
             GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
@@ -53,9 +60,11 @@ public class FollowPath : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
         }
-        counter++;
+
+		counter++;
+
     }
-    
+
     private void Update()
     {
         if (Input.GetKeyDown("r"))
@@ -63,13 +72,11 @@ public class FollowPath : MonoBehaviour
             //Reset clone to level start
             if (gameObject.transform.position.z == -1)
                 gameObject.GetComponent<Transform>().position = Vector3.back;
-
             else
                 gameObject.GetComponent<Transform>().position = Vector3.zero;
-
             counter = 0;
         }
-        
+
         //If you hit the number keys, destroy old clones and remap.
         if (Input.GetKeyDown("1"))
         {
@@ -99,7 +106,6 @@ public class FollowPath : MonoBehaviour
         {
             Numbers(7);
         }
-
         if (Input.GetKeyDown("8"))
         {
             Numbers(8);
@@ -113,18 +119,16 @@ public class FollowPath : MonoBehaviour
     private void Numbers(int num)
     {
         clones = GameObject.FindGameObjectsWithTag("Clone");
-        
+
         if (cloneNum == num)
         {
             foreach (GameObject clone in clones)
             {
                 //Reset clone to level start
-                if (clone.transform.position.z == -1)
+                if(clone.transform.position.z == -1)
                     clone.GetComponent<Transform>().position = Vector3.back;
-
                 else
                     clone.GetComponent<Transform>().position = Vector3.zero;
-
                 Debug.Log(clone.GetComponent<FollowPath>().cloneNum);
                 clone.GetComponent<FollowPath>().counter = 0;
             }
@@ -133,7 +137,7 @@ public class FollowPath : MonoBehaviour
             DestroyClone();
         }
     }
-    
+
     private void DestroyClone()
     {
         gameObject.GetComponent<Transform>().Translate(0, 0, -1);
