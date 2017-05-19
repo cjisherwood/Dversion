@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
     public Transform camera;
 
     public float speed;
+    private Vector2 velocity;
     public ulong counter;
 	public GameObject clone;
+    private Rigidbody2D rb;
+
+    public GameObject item;
+    public GameObject temp; //DELETE
 
     private Transform player;
     public int numOfClones;
@@ -19,9 +25,11 @@ public class Player : MonoBehaviour {
     void Start () 
 	{
 		player = gameObject.GetComponent<Transform>();
+        item = player.gameObject;
+        rb = player.GetComponent<Rigidbody2D>();
 
-		limit = 3600;
-        origin = new bool[limit, 5];
+        limit = 3600;
+        origin = new bool[limit, 6];
     }
 
     void FixedUpdate()
@@ -30,7 +38,8 @@ public class Player : MonoBehaviour {
         if (Input.GetKey("w") || Input.GetKey("up"))
         {
             origin[counter, 0] = true;
-            player.Translate(0, speed, 0);
+            velocity += Vector2.up * speed;
+            //player.Translate(0, speed, 0);
             if(player.position.y - camera.position.y > 2)
             {
                 camera.Translate(0, speed, 0);
@@ -39,7 +48,8 @@ public class Player : MonoBehaviour {
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
             origin[counter, 1] = true;
-            player.Translate(-speed, 0, 0);
+            velocity += Vector2.left * speed;
+            //player.Translate(-speed, 0, 0);
             if (player.position.x - camera.position.x < -3.5)
             {
                 camera.Translate(-speed, 0, 0);
@@ -48,7 +58,8 @@ public class Player : MonoBehaviour {
         if (Input.GetKey("s") || Input.GetKey("down"))
         {
             origin[counter, 2] = true;
-            player.Translate(0, -speed, 0);
+            velocity += Vector2.down * speed;
+            //player.Translate(0, -speed, 0);
             if (player.position.y - camera.position.y < -2)
             {
                 camera.Translate(0, -speed, 0);
@@ -57,11 +68,24 @@ public class Player : MonoBehaviour {
         if (Input.GetKey("d") || Input.GetKey("right"))
         {
             origin[counter, 3] = true;
-            player.Translate(speed, 0, 0);
+            velocity += Vector2.right * speed;
+            //player.Translate(speed, 0, 0);
             if (player.position.x - camera.position.x > 3.5)
             {
                 camera.Translate(speed, 0, 0);
             }
+        }
+        rb.MovePosition(rb.position + velocity);
+        velocity = Vector2.zero;
+
+        if (Input.GetKey("e") || Input.GetKey("enter"))
+        {
+            origin[counter, 4] = true;
+        }
+        if (Input.GetKey("q"))
+        {
+            origin[counter, 5] = true;
+            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
         }
 
         counter++;
@@ -76,7 +100,7 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
-        //Placeholder for resetting level and adding clone.
+        //Debug for resetting level and adding clone.
         if (Input.GetKeyDown("r"))
         {
             CreateClone();
@@ -91,11 +115,12 @@ public class Player : MonoBehaviour {
     public void ResetLevel()
     {
         //Reset player to level start
+        temp.transform.position = new Vector3(-2, 2, 0);
         player.position = Vector3.zero;
         counter = 0;
         limit = 3600;
         originForClone = origin;
-        origin = new bool[limit, 5];
+        origin = new bool[limit, 6];
         camera.position = Vector3.back;
     }
 
@@ -162,4 +187,6 @@ public class Player : MonoBehaviour {
             Debug.Log("Clone limit reached. Clone not created.");
         }
     }
+
+    
 }

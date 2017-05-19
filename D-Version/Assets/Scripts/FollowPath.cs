@@ -10,14 +10,23 @@ public class FollowPath : MonoBehaviour {
 	public ulong counter;
 	private float speed;
     private string input;
+    private Vector2 velocity;
+    private Rigidbody2D rb;
+
+    public GameObject item;
 
     // Use this for initialization
     void Start ()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 		speed = 0.05f;//FIX
+        rb = gameObject.GetComponent<Rigidbody2D>();
 
-		origin = player.GetComponent<Player>().originForClone;
+        item = gameObject;
+
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+
+        origin = player.GetComponent<Player>().originForClone;
         cloneNum = player.GetComponent<Player>().CalcNextCloneNum();
 	}
 	
@@ -26,20 +35,31 @@ public class FollowPath : MonoBehaviour {
     {
 		if (origin[counter, 0])
 		{           
-			gameObject.GetComponent<Transform>().Translate(0, speed, 0);
-		}
+            velocity += Vector2.up * speed;
+        }
 		if (origin[counter, 1])
 		{
-			gameObject.GetComponent<Transform>().Translate(-speed, 0, 0);
-		}
+            velocity += Vector2.left * speed;
+        }
 		if (origin[counter, 2])
 		{
-			gameObject.GetComponent<Transform>().Translate(0, -speed, 0);
-		}
+            velocity += Vector2.down * speed;
+        }
 		if (origin[counter, 3])
 		{
-			gameObject.GetComponent<Transform>().Translate(speed, 0, 0);
-		}
+            velocity += Vector2.right * speed;
+        }
+        rb.MovePosition(rb.position + velocity);
+        velocity = Vector2.zero;
+
+        if (origin[counter, 4])
+        {
+            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
+        }
+        if (origin[counter, 5])
+        {
+            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
+        }
 
 		counter++;
 
