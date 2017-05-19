@@ -15,6 +15,8 @@ public class FollowPath : MonoBehaviour {
 
     public GameObject item;
 
+    public GameObject item;
+
     // Use this for initialization
     void Start ()
     {
@@ -26,7 +28,13 @@ public class FollowPath : MonoBehaviour {
 
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 
+<<<<<<< HEAD
         origin = player.GetComponent<Player>().originForClone;
+=======
+        item = gameObject;
+
+		origin = player.GetComponent<Player>().originForClone;
+>>>>>>> 13bf3fcd8523e2674ad7ef0cd6945aaeff161dcd
         cloneNum = player.GetComponent<Player>().CalcNextCloneNum();
 	}
 	
@@ -47,11 +55,16 @@ public class FollowPath : MonoBehaviour {
         }
 		if (origin[counter, 3])
 		{
+<<<<<<< HEAD
             velocity += Vector2.right * speed;
         }
         rb.MovePosition(rb.position + velocity);
         velocity = Vector2.zero;
 
+=======
+			gameObject.GetComponent<Transform>().Translate(speed, 0, 0);
+		}
+>>>>>>> 13bf3fcd8523e2674ad7ef0cd6945aaeff161dcd
         if (origin[counter, 4])
         {
             GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
