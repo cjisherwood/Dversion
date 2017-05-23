@@ -28,8 +28,17 @@ public class MenuController : MonoBehaviour
         {
             fullScreenMode.isOn = false;
         }
+    }
 
-        //Screen.fullScreen = false;
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (optionsButton.IsInteractable())
+                LoadOptions();
+            else
+                BackButton();
+        }
     }
 
     public void LoadScene(string sceneNum)
