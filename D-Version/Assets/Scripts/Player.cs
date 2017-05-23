@@ -15,9 +15,6 @@ public class Player : MonoBehaviour {
     public GameObject item;
     public GameObject temp; //DELETE
 
-    public GameObject item;
-    public GameObject temp; //DELETE
-
     private Transform player;
     public int numOfClones;
     public int cloneLimit;
@@ -29,14 +26,9 @@ public class Player : MonoBehaviour {
 	{
 		player = gameObject.GetComponent<Transform>();
         item = player.gameObject;
-<<<<<<< HEAD
         rb = player.GetComponent<Rigidbody2D>();
 
         limit = 3600;
-=======
-
-		limit = 3600;
->>>>>>> 13bf3fcd8523e2674ad7ef0cd6945aaeff161dcd
         origin = new bool[limit, 6];
     }
 
@@ -83,12 +75,9 @@ public class Player : MonoBehaviour {
                 camera.Translate(speed, 0, 0);
             }
         }
-<<<<<<< HEAD
         rb.MovePosition(rb.position + velocity);
         velocity = Vector2.zero;
 
-=======
->>>>>>> 13bf3fcd8523e2674ad7ef0cd6945aaeff161dcd
         if (Input.GetKey("e") || Input.GetKey("enter"))
         {
             origin[counter, 4] = true;
