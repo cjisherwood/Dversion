@@ -55,6 +55,7 @@ public class FollowPath : MonoBehaviour {
         if (origin[counter, 4])
         {
             GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
+            GameObject.FindGameObjectWithTag("Switch").GetComponent<Interaction>().Interact(gameObject);
         }
         if (origin[counter, 5])
         {

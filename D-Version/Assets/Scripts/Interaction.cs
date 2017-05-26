@@ -8,12 +8,14 @@ public class Interaction : MonoBehaviour
     public Transform player;
     public Transform[] clones;
     private string me;
+    private bool activated;
+    public GameObject buddy;
 
 	// Use this for initialization
 	void Start ()
     {
-
         me = gameObject.tag;
+        activated = false;
 		
 	}
 	
@@ -38,7 +40,6 @@ public class Interaction : MonoBehaviour
             {
                 actor.GetComponent<Player>().item = player.gameObject;
                 gameObject.transform.position = actor.transform.position;
-                Debug.Log("putting key down...");
             }
         }
 
@@ -48,7 +49,6 @@ public class Interaction : MonoBehaviour
             {
                 actor.GetComponent<FollowPath>().item = actor.gameObject;
                 gameObject.transform.position = actor.transform.position;
-                Debug.Log("putting key down...");
             }
         }
     }
@@ -67,6 +67,10 @@ public class Interaction : MonoBehaviour
                         {
                             case "Key":
                                 player.GetComponent<Player>().item = PickUp();
+                                break;
+                            case "Switch": //Make work when item is held
+                                activated = !activated;
+                                Activate();
                                 break;
                             default:
                                 Debug.Log("Please attach the proper tag to this object.");
@@ -89,6 +93,10 @@ public class Interaction : MonoBehaviour
                         case "Key":
                             actor.GetComponent<FollowPath>().item = PickUp();
                             break;
+                        case "Switch": //Make work when item is held
+                            activated = !activated;
+                            Activate();
+                            break;
                         default:
                             Debug.Log("Please attach the proper tag to this object.");
                             break;
@@ -96,5 +104,10 @@ public class Interaction : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Activate()
+    {
+        buddy.SetActive(!activated);
     }
 }
