@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.Characters.FirstPerson;
+//using UnityStandardAssets.Characters.FirstPerson;
 
 public class CameraZoom : MonoBehaviour {
 
@@ -12,11 +12,11 @@ public class CameraZoom : MonoBehaviour {
 
 	private bool isZoomed = false;
 
-	FirstPersonController zoomSense;
+//	FirstPersonController zoomSense;
 
 	void Start ()
 	{
-		zoomSense = GetComponentInParent<FirstPersonController> ();
+//		zoomSense = GetComponentInParent<FirstPersonController> ();
 	}
 
 	void Update()
@@ -29,15 +29,15 @@ public class CameraZoom : MonoBehaviour {
 		if (isZoomed) {
 			GetComponent<Camera> ().fieldOfView = Mathf.Lerp 
 				(GetComponent<Camera> ().fieldOfView, zoom, Time.deltaTime * smooth);
-			zoomSense.m_MouseLook.XSensitivity = 0.5f;
-			zoomSense.m_MouseLook.YSensitivity = 0.5f;
+//			zoomSense.m_MouseLook.XSensitivity = 0.5f;
+//			zoomSense.m_MouseLook.YSensitivity = 0.5f;
 		}
 
 		else{
 			GetComponent<Camera> ().fieldOfView = Mathf.Lerp 
 				(GetComponent<Camera> ().fieldOfView, normal, Time.deltaTime * smooth);
-			zoomSense.m_MouseLook.XSensitivity = 2;
-			zoomSense.m_MouseLook.YSensitivity = 2;
+//			zoomSense.m_MouseLook.XSensitivity = 2;
+//			zoomSense.m_MouseLook.YSensitivity = 2;
 		}
 	}
 }

@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
 {
     public GameObject exitMenu;
     public GameObject optionsMenu;
+    public new GameObject camera;
 
     public Button playButton;
     public Button optionsButton;
@@ -15,22 +16,18 @@ public class MenuController : MonoBehaviour
 
     public Toggle fullScreenMode;
 
+    public Camera cameraToOptions;
+    Animator animator;
+
     void Start()
     {
+        animator = camera.GetComponent<Animator>();
+
         exitMenu.SetActive(false);
         optionsMenu.SetActive(false);
-
-        if (Screen.fullScreen)
-        {
-            fullScreenMode.isOn = true;
-        }
-        else if (!Screen.fullScreen)
-        {
-            fullScreenMode.isOn = false;
-        }
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -49,6 +46,8 @@ public class MenuController : MonoBehaviour
     #region Options Methods
     public void LoadOptions()
     {
+        CameraZoom("ZoomIn");
+
         playButton.interactable = false;
         exitButton.interactable = false;
         optionsButton.interactable = false;
@@ -62,6 +61,8 @@ public class MenuController : MonoBehaviour
 
     public void BackButton()
     {
+        CameraZoom("ZoomOut");
+
         playButton.interactable = true;
         exitButton.interactable = true;
         optionsButton.interactable = true;
@@ -96,4 +97,10 @@ public void LoadExit()
         exitMenu.SetActive(false);
     }
     #endregion Exit Methods
+
+    public void CameraZoom(string direction)
+    {
+        animator.SetTrigger(direction);
+    }
 }
+        
