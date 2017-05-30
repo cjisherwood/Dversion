@@ -27,7 +27,7 @@ public class MenuController : MonoBehaviour
         optionsMenu.SetActive(false);
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

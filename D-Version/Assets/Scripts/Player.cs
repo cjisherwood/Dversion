@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    public Transform camera;
+    public new Transform camera;
 
     public float speed;
     private Vector2 velocity;
