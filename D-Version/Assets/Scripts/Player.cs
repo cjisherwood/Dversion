@@ -12,8 +12,8 @@ public class Player : MonoBehaviour {
 	public GameObject clone;
     private Rigidbody2D rb;
 
-    public GameObject item;
-    public GameObject temp; //DELETE
+   //public GameObject item;
+    //public GameObject temp; //DELETE
 
     private Transform player;
     public int numOfClones;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
     void Start () 
 	{
 		player = gameObject.GetComponent<Transform>();
-        item = player.gameObject;
+        //item = player.gameObject;
         rb = player.GetComponent<Rigidbody2D>();
 
         limit = 3600;
@@ -82,11 +82,11 @@ public class Player : MonoBehaviour {
         {
             origin[counter, 4] = true;
         }
-        if (Input.GetKey("q"))
-        {
-            origin[counter, 5] = true;
-            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
-        }
+        //if (Input.GetKey("q"))
+        //{
+        //    origin[counter, 5] = true;
+        //    GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
+        //}
 
         counter++;
 
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour {
     public void ResetLevel()
     {
         //Reset player to level start
-        temp.transform.position = new Vector3(-2, 2, 0);
+        //temp.transform.position = new Vector3(-2, 2, 0);
         player.position = Vector3.zero;
         counter = 0;
         limit = 3600;

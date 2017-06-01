@@ -31,7 +31,10 @@ public class MenuController : MonoBehaviour
         easy = true;
         medium = hard = false;
 
-        
+        if (Screen.fullScreen)
+            fullScreenMode.isOn = true;
+        else
+            fullScreenMode.isOn = false;
     }
 
     public void Update()
@@ -40,6 +43,11 @@ public class MenuController : MonoBehaviour
         {
             if (difficulty.isActiveAndEnabled)
                 BackButton();
+            else if (playButton.IsInteractable() && Screen.fullScreen)
+            {
+                Screen.fullScreen = false;
+                fullScreenMode.isOn = false;
+            }
         }
     }
 
