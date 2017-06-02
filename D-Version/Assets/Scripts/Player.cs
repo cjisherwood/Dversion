@@ -90,6 +90,8 @@ public class Player : MonoBehaviour {
 
         counter++;
 
+        Debug.Log(origin.LongLength);
+
         if (counter + 1 > limit)
         {
             limit += 3600; //Add a minute
