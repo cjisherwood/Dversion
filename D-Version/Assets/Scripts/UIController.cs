@@ -43,6 +43,6 @@ public class UIController : MonoBehaviour
 
     public void OnClickStuff()
     {
-        activeClone[0] = true;
+        Cursor.visible = !Cursor.visible;
     }
 }
