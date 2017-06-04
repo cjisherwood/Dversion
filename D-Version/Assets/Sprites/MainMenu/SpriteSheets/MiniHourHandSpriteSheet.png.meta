@@ -1,0 +1,926 @@
+fileFormatVersion: 2
+guid: 04679e3e719406b4cb1f70e975391d5e
+timeCreated: 1495843264
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MiniHourHandSpriteSheet_1
+    21300002: MiniHourHandSpriteSheet_2
+    21300004: MiniHourHandSpriteSheet_3
+    21300006: MiniHourHandSpriteSheet_4
+    21300008: MiniHourHandSpriteSheet_5
+    21300010: MiniHourHandSpriteSheet_6
+    21300012: MiniHourHandSpriteSheet_7
+    21300014: MiniHourHandSpriteSheet_8
+    21300016: MiniHourHandSpriteSheet_9
+    21300018: MiniHourHandSpriteSheet_10
+    21300020: MiniHourHandSpriteSheet_11
+    21300022: MiniHourHandSpriteSheet_12
+    21300024: MiniHourHandSpriteSheet_13
+    21300026: MiniHourHandSpriteSheet_14
+    21300028: MiniHourHandSpriteSheet_15
+    21300030: MiniHourHandSpriteSheet_16
+    21300032: MiniHourHandSpriteSheet_17
+    21300034: MiniHourHandSpriteSheet_18
+    21300036: MiniHourHandSpriteSheet_19
+    21300038: MiniHourHandSpriteSheet_20
+    21300040: MiniHourHandSpriteSheet_21
+    21300042: MiniHourHandSpriteSheet_22
+    21300044: MiniHourHandSpriteSheet_23
+    21300046: MiniHourHandSpriteSheet_24
+    21300048: MiniHourHandSpriteSheet_25
+    21300050: MiniHourHandSpriteSheet_26
+    21300052: MiniHourHandSpriteSheet_27
+    21300054: MiniHourHandSpriteSheet_28
+    21300056: MiniHourHandSpriteSheet_29
+    21300058: MiniHourHandSpriteSheet_30
+    21300060: MiniHourHandSpriteSheet_31
+    21300062: MiniHourHandSpriteSheet_32
+    21300064: MiniHourHandSpriteSheet_33
+    21300066: MiniHourHandSpriteSheet_34
+    21300068: MiniHourHandSpriteSheet_35
+    21300070: MiniHourHandSpriteSheet_36
+    21300072: MiniHourHandSpriteSheet_37
+    21300074: MiniHourHandSpriteSheet_38
+    21300076: MiniHourHandSpriteSheet_39
+    21300078: MiniHourHandSpriteSheet_40
+    21300080: MiniHourHandSpriteSheet_41
+    21300082: MiniHourHandSpriteSheet_42
+    21300084: MiniHourHandSpriteSheet_43
+    21300086: MiniHourHandSpriteSheet_44
+    21300088: MiniHourHandSpriteSheet_45
+    21300090: MiniHourHandSpriteSheet_46
+    21300092: MiniHourHandSpriteSheet_47
+    21300094: MiniHourHandSpriteSheet_48
+    21300096: MiniHourHandSpriteSheet_49
+    21300098: MiniHourHandSpriteSheet_50
+    21300100: MiniHourHandSpriteSheet_51
+    21300102: MiniHourHandSpriteSheet_52
+    21300104: MiniHourHandSpriteSheet_53
+    21300106: MiniHourHandSpriteSheet_54
+    21300108: MiniHourHandSpriteSheet_55
+    21300110: MiniHourHandSpriteSheet_56
+    21300112: MiniHourHandSpriteSheet_57
+    21300114: MiniHourHandSpriteSheet_57
+    21300116: MiniHourHandSpriteSheet_57
+    21300118: MiniHourHandSpriteSheet_58
+    21300120: MiniHourHandSpriteSheet_0
+    21300122: MiniHourHandSpriteSheet_59
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 5513
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 5513
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 5513
+        width: 852
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 5513
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 5513
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 5513
+        y: 5513
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 6594
+        y: 5513
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 7674
+        y: 5513
+        width: 852
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 8753
+        y: 5513
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 9833
+        y: 5513
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 4433
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 4433
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 4433
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 4433
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 4433
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 5513
+        y: 4433
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 6594
+        y: 4433
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 7674
+        y: 4433
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 8753
+        y: 4433
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 9833
+        y: 4433
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 3353
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 3353
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 3353
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 3353
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 3353
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 5513
+        y: 3353
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 6594
+        y: 3353
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 7674
+        y: 3353
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 8753
+        y: 3353
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 9833
+        y: 3353
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 2274
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 2274
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 2274
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 2274
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 2274
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 5513
+        y: 2274
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 6594
+        y: 2274
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 7674
+        y: 2274
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 8753
+        y: 2274
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 9833
+        y: 2274
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1194
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1194
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 1194
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 1194
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 1194
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 5513
+        y: 1194
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 6594
+        y: 1194
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 7674
+        y: 1194
+        width: 852
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 8753
+        y: 1194
+        width: 853
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 9833
+        y: 1194
+        width: 854
+        height: 853
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 113
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 113
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 113
+        width: 852
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 3353
+        y: 113
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 4433
+        y: 113
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 5513
+        y: 113
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 6594
+        y: 113
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 7674
+        y: 113
+        width: 852
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 8753
+        y: 113
+        width: 853
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MiniHourHandSpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 9833
+        y: 113
+        width: 854
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

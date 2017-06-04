@@ -27,31 +27,31 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (collision.gameObject.GetComponent<Player>().item.tag == "Key")
-            {
-                OpenDoor(collision.gameObject);
-            } 
-        }
-        if (collision.gameObject.tag == "Clone")
-        {
-            if (collision.gameObject.GetComponent<FollowPath>().item.tag == "Key")
-            {
-                OpenDoor(collision.gameObject);
-            }
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        if (collision.gameObject.GetComponent<Player>().item.tag == "Key")
+    //        {
+    //            OpenDoor(collision.gameObject);
+    //        } 
+    //    }
+    //    if (collision.gameObject.tag == "Clone")
+    //    {
+    //        if (collision.gameObject.GetComponent<FollowPath>().item.tag == "Key")
+    //        {
+    //            OpenDoor(collision.gameObject);
+    //        }
+    //    }
+    //}
 
-    public void OpenDoor(GameObject aaron)
-    {
-        open.SetTrigger("Open");
-        if (aaron.tag == "Player")
-        {
-            aaron.GetComponent<Player>().item = aaron;
-        }
-        //START HERE
-    }
+    //public void OpenDoor(GameObject aaron)
+    //{
+    //    open.SetTrigger("Open");
+    //    if (aaron.tag == "Player")
+    //    {
+    //        aaron.GetComponent<Player>().item = aaron;
+    //    }
+    //    //START HERE
+    //}
 }
