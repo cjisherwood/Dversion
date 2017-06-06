@@ -79,7 +79,14 @@ public class MenuController : MonoBehaviour
     // *and making the options menu visible
     public void LoadOptions()
     {
-        CameraZoom("ZoomIn");
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            CameraZoom("InGameZoomIn");
+        }
+        else
+        { 
+            CameraZoom("ZoomIn");
+        }
 
         playButton.interactable = false;
         exitButton.interactable = false;
@@ -111,7 +118,14 @@ public class MenuController : MonoBehaviour
     // *and it hides the options menu
     public void BackButton()
     {
-        CameraZoom("ZoomOut");
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            CameraZoom("InGameZoomOut");
+        }
+        else
+        {
+            CameraZoom("ZoomOut");
+        }
 
         playButton.interactable = true;
         exitButton.interactable = true;

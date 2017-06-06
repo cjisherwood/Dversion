@@ -6,16 +6,22 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject inGamePause;
 
-	void Start ()
+    //Animator pauseMenuUI;   //Uncomment for animation
+    //public bool isPauseOpen;       //Uncomment for animation
+
+    void Start ()
     {
         Cursor.visible = false;
 
         inGamePause.SetActive(false);
-	}
+
+        //pauseMenuUI = GameObject.Find("PauseMenuUIAnim").GetComponent<Animator>();
+        //isPauseOpen = false;        //Uncomment for animation
+    }
 	
 	void Update ()
     {
-		if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (inGamePause.activeSelf)
             {
@@ -32,5 +38,19 @@ public class PauseMenu : MonoBehaviour
                 Cursor.visible = true;
             }
         }
-	}
+
+        //Uncomment for animation
+        //if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    LaunchPauseMenu(isPauseOpen ? "Hide" : "Launch");
+
+        //    isPauseOpen = !isPauseOpen;
+        //}
+    }
+
+    //Uncomment for animation
+    //public void LaunchPauseMenu(string launch)
+    //{
+    //    pauseMenuUI.SetTrigger(launch);
+    //}
 }

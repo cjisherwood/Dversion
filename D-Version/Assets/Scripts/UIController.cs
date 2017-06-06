@@ -13,12 +13,9 @@ public class UIController : MonoBehaviour
 
     FollowPath cloneScript;
     public int cloneNumber;
-    //public Animator pauseMenuUI;   //Uncomment for animation
-    //public bool isPauseOpen;       //Uncomment for animation
 
     void Start()
     {
-        //isPauseOpen = true;        //Uncomment for animation
     }
 
     void Update()
@@ -48,14 +45,6 @@ public class UIController : MonoBehaviour
             if (cloneNumber == 9)
                 img[8].fillAmount += 1.0f;
         }
-
-        //Uncomment for animation
-        //if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //LaunchPauseMenu(isPauseOpen ? "Hide" : "Launch");
-
-        //isPauseOpen = !isPauseOpen;
-        //}
     }
 
     public void OnClickStuff()
@@ -63,11 +52,4 @@ public class UIController : MonoBehaviour
         img[8].fillAmount += 1;
         Time.timeScale = 0;
     }
-
-
-    //Uncomment for animation
-    //public void LaunchPauseMenu(string launch)
-    //{
-    //pauseMenuUI.SetTrigger(launch);
-    //}
 }

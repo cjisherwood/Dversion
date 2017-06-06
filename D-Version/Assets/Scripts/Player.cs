@@ -105,16 +105,6 @@ public class Player : MonoBehaviour {
         {
             CreateClone();
         }
-    
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Time.timeScale = 1;
-        }
     }
 
     public ulong GetCounter()
