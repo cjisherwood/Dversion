@@ -90,8 +90,6 @@ public class Player : MonoBehaviour {
 
         counter++;
 
-        Debug.Log(origin.LongLength);
-
         if (counter + 1 > limit)
         {
             limit += 3600; //Add a minute
@@ -106,6 +104,16 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown("r"))
         {
             CreateClone();
+        }
+    
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = 1;
         }
     }
 
