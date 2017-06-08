@@ -7,49 +7,48 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
 
-    public Image[] img;
-    public bool[] activeClone;
-    public float waitTime = 30.0f;
+    public Image[] activeImg;
+    public Image[] InactiveImg;
 
-    FollowPath cloneScript;
+    Player cloneNumScript;
     public int cloneNumber;
 
     void Start()
     {
+        Time.timeScale = 1;
+        cloneNumScript = GameObject.Find("Player").GetComponent<Player> ();
+        
+        for (int i = cloneNumScript.cloneLimit; i < 9; i++)
+        {
+            InactiveImg[i].enabled = false;
+        }
     }
 
     void Update()
     {
+        cloneNumber = cloneNumScript.CalcNextCloneNum();
+        //Debug.Log("Clone Number is " + cloneNumber);
+
         if (Input.GetKeyDown(KeyCode.R))
         {
-            cloneScript = GameObject.FindGameObjectWithTag("Clone").GetComponent<FollowPath>();
-
-            if (gameObject.tag == "Clone")
-                Debug.Log("Number of clones is " + cloneScript.cloneNum);
             if (cloneNumber == 1)
-                img[0].fillAmount += 1.0f;
+                activeImg[0].fillAmount += 1.0f;
             if (cloneNumber == 2)
-                img[1].fillAmount += 1.0f;
+                activeImg[1].fillAmount += 1.0f;
             if (cloneNumber == 3)
-                img[2].fillAmount += 1.0f;
+                activeImg[2].fillAmount += 1.0f;
             if (cloneNumber == 4)
-                img[3].fillAmount += 1.0f;
+                activeImg[3].fillAmount += 1.0f;
             if (cloneNumber == 5)
-                img[4].fillAmount += 1.0f;
+                activeImg[4].fillAmount += 1.0f;
             if (cloneNumber == 6)
-                img[5].fillAmount += 1.0f;
+                activeImg[5].fillAmount += 1.0f;
             if (cloneNumber == 7)
-                img[6].fillAmount += 1.0f;
+                activeImg[6].fillAmount += 1.0f;
             if (cloneNumber == 8)
-                img[7].fillAmount += 1.0f;
+                activeImg[7].fillAmount += 1.0f;
             if (cloneNumber == 9)
-                img[8].fillAmount += 1.0f;
+                activeImg[8].fillAmount += 1.0f;
         }
-    }
-
-    public void OnClickStuff()
-    {
-        img[8].fillAmount += 1;
-        Time.timeScale = 0;
     }
 }
