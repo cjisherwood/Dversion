@@ -10,7 +10,7 @@ public class MenuController : MonoBehaviour
     public GameObject exitMenu;     //Panel in which all of the exit menu items are present
     public GameObject optionsMenu;  //Panel in which all of the exit menu items are present
     public new GameObject camera;   //Getting access to main camera for options animation purposes
-    
+
     //Declaration of all three buttons in which the main menu consists
     public Button playButton, optionsButton, exitButton;
 
@@ -21,6 +21,10 @@ public class MenuController : MonoBehaviour
     public bool easy, medium, hard; //Boolean values used to decide the game's difficulty
 
     Animator animator;   //Animator used to animate the zoom in motion for the options menu
+
+    //Variables used only on in-game. 
+    PauseMenu pauseMenu;        //Gets access to the script PauseMenu
+    public GameObject exitGameMenu;    //Gets access to the exit game options when clicked on "DESKTOP"
     #endregion
 
     #region Start and Update
@@ -44,6 +48,12 @@ public class MenuController : MonoBehaviour
             fullScreenMode.isOn = true;
         else
             fullScreenMode.isOn = false;
+
+        //Finding the game objets with the specified type
+        pauseMenu = GameObject.Find("UICtrl").GetComponent<PauseMenu>();
+        
+        //Disables the exit game menu options
+        exitGameMenu.SetActive(false);
     }
 
     public void Update()
@@ -64,11 +74,21 @@ public class MenuController : MonoBehaviour
     }
     #endregion
 
-    #region Scene Loader
+    #region Play Button
     //Loads a scene by is name. Scene must be in built settings in order for it to be called
-    public void LoadScene(string sceneNum)
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneNum);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    //If "Play" button is pressed in the game, it will bring the player right back to the existing gameplay.
+    public void OptionsPlayButton()
+    {
+        Time.timeScale = 1;
+        pauseMenu.LaunchPauseMenu("Hide");
+
+        Cursor.visible = false;
+        pauseMenu.isPauseOpen = false;
     }
     #endregion
 
@@ -79,7 +99,14 @@ public class MenuController : MonoBehaviour
     // *and making the options menu visible
     public void LoadOptions()
     {
-        CameraZoom("ZoomIn");
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            CameraZoom("InGameZoomIn");
+        }
+        else
+        { 
+            CameraZoom("ZoomIn");
+        }
 
         playButton.interactable = false;
         exitButton.interactable = false;
@@ -111,7 +138,14 @@ public class MenuController : MonoBehaviour
     // *and it hides the options menu
     public void BackButton()
     {
-        CameraZoom("ZoomOut");
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            CameraZoom("InGameZoomOut");
+        }
+        else
+        {
+            CameraZoom("ZoomOut");
+        }
 
         playButton.interactable = true;
         exitButton.interactable = true;
@@ -216,6 +250,19 @@ public class MenuController : MonoBehaviour
         exitMenu.SetActive(true);
     }
 
+    //Is "HOME" is pressed, player will be directed to main menu
+    public void ExitHomeButton()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    //By pressing "DESKTOP" exit menu disables and exit game menu enables
+    public void ExitDesktopButton()
+    {
+        exitMenu.SetActive(false);
+        exitGameMenu.SetActive(true);
+    }
+
     //Pressing yes inside the exit menu will exit the application
     public void ExitYesButton()
     {
@@ -229,11 +276,17 @@ public class MenuController : MonoBehaviour
     // *and set the exit menu to not active
     public void ExitNoButton()
     {
+        
         playButton.interactable = true;
         exitButton.interactable = true;
         optionsButton.interactable = true;
-    
+
         exitMenu.SetActive(false);
+
+        if (GameObject.FindGameObjectWithTag("Player")) 
+        {
+            exitGameMenu.SetActive(false);
+        }
     }
     #endregion Exit Methods
 

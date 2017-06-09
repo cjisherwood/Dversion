@@ -29,10 +29,14 @@ public class ResolutionDropDowns : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnPointerEnter(PointerEventData eventData)
     {
         isOpen = true;
+
+        Debug.Log("Entering resolution and value is " + isOpen);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         isOpen = false;
+
+        Debug.Log("Exiting Resolution and value is " + isOpen);
     }
 }

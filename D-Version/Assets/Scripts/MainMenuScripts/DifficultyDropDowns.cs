@@ -24,15 +24,19 @@ public class DifficultyDropDowns : MonoBehaviour, IPointerEnterHandler, IPointer
     {
         scaleDif.y = Mathf.Lerp(scaleDif.y, isOpenDif ? 1 : 0, Time.deltaTime * 12);
         subButtonsDif.localScale = scaleDif;
-	}
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         isOpenDif = true;
+
+        Debug.Log("Entering difficulty and value is " + isOpenDif);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         isOpenDif = false;
+
+        Debug.Log("Exiting difficulty and value is " + isOpenDif);
     }
 }

@@ -7,42 +7,57 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
 
-    public Image[] img;
-    public bool[] activeClone;
-    public float waitTime = 30.0f;
+    public Image[] activeImg;
+    public Image[] InactiveImg;
 
-    public Player playerScript;
+    Player cloneNumScript;
     public int cloneNumber;
+
+    public bool coolingDown;
+    public float waitTime;
+
+    public Text interactionE;
+    public Text lockedDoor;
 
     void Start()
     {
-        cloneNumber = playerScript.numOfClones;
+        Time.timeScale = 1;
+        cloneNumScript = GameObject.Find("Player").GetComponent<Player> ();
+        
+        for (int i = cloneNumScript.cloneLimit; i < 9; i++)
+        {
+            InactiveImg[i].enabled = false;
+        }
+
+        coolingDown = true;
+        waitTime = 0.5f;
+
+        interactionE.enabled = false;
+        lockedDoor.enabled = false;
     }
 
     void Update()
     {
-        if (cloneNumber == 1)
-            img[0].fillAmount += 1.0f;
-        if (cloneNumber == 2)
-            img[1].fillAmount += 1.0f;
-        if (cloneNumber == 3)
-            img[2].fillAmount += 1.0f;
-        if (cloneNumber == 4)
-            img[3].fillAmount += 1.0f;
-        if (cloneNumber == 5)
-            img[4].fillAmount += 1.0f;
-        if (cloneNumber == 6)
-            img[5].fillAmount += 1.0f;
-        if (cloneNumber == 7)
-            img[6].fillAmount += 1.0f;
-        if (cloneNumber == 8)
-            img[7].fillAmount += 1.0f;
-        if (cloneNumber == 9)
-            img[8].fillAmount += 1.0f;
-    }
+        cloneNumber = cloneNumScript.CalcNextCloneNum();
+        //Debug.Log("Clone Number is " + cloneNumber);
 
-    public void OnClickStuff()
-    {
-        Cursor.visible = !Cursor.visible;
+        if (coolingDown)
+        {
+            activeImg[cloneNumber].fillAmount += 1.0f / waitTime * Time.deltaTime;
+            
+            if (activeImg[cloneNumber].fillAmount == 1)
+                coolingDown = false;
+        }
+        else
+        {
+            activeImg[cloneNumber].fillAmount -= 1.0f / waitTime * Time.deltaTime;
+      
+            if (activeImg[cloneNumber].fillAmount == 0)
+                coolingDown = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            if (activeImg[cloneNumber].fillAmount != 1)
+                activeImg[cloneNumber].fillAmount = 1;
     }
 }
