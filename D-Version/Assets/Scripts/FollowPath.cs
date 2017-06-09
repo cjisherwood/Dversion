@@ -8,62 +8,77 @@ public class FollowPath : MonoBehaviour {
     public bool[,] origin;
     private Player player;
 	public ulong counter;
-	private float speed;
+	private const float speed = 0.07f;
     private string input;
     private Vector2 velocity;
     private Rigidbody2D rb;
+    public float vert;
+    public float hor;
 
     public GameObject item;
+
+    Animator anim;
 
     // Use this for initialization
     void Start ()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-		speed = 0.05f;//FIX
         rb = gameObject.GetComponent<Rigidbody2D>();
+        clones = GameObject.FindGameObjectsWithTag("Clone");
 
-        item = gameObject;
+        item = null;
 
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+        foreach(GameObject clone in clones)
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), clone.GetComponent<Collider2D>());
 
         origin = player.GetComponent<Player>().originForClone;
         cloneNum = player.GetComponent<Player>().CalcNextCloneNum();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+
+
+        anim = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
-		if (origin[counter, 0])
-		{           
-            velocity += Vector2.up * speed;
-        }
-		if (origin[counter, 1])
-		{
-            velocity += Vector2.left * speed;
-        }
-		if (origin[counter, 2])
-		{
-            velocity += Vector2.down * speed;
-        }
-		if (origin[counter, 3])
-		{
-            velocity += Vector2.right * speed;
-        }
-        rb.MovePosition(rb.position + velocity);
-        velocity = Vector2.zero;
+        if ((int)counter < origin.GetLength(0))
+        {
+            if (origin[counter, 0])
+            {
+                velocity += Vector2.up * speed;
+            }
+            if (origin[counter, 1])
+            {
+                velocity += Vector2.left * speed;
+            }
+            if (origin[counter, 2])
+            {
+                velocity += Vector2.down * speed;
+            }
+            if (origin[counter, 3])
+            {
+                velocity += Vector2.right * speed;
+            }
+            rb.MovePosition(rb.position + velocity);
+            velocity = Vector2.zero;
 
-        //if (origin[counter, 4])
-        //{
-        //    GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
-        //    GameObject.FindGameObjectWithTag("Switch").GetComponent<Interaction>().Interact(gameObject);
-        //}
-        //if (origin[counter, 5])
-        //{
-        //    GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
-        //}
+            if (origin[counter, 4])
+            {
+                GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
+                GameObject.FindGameObjectWithTag("Switch").GetComponent<Interaction>().Interact(gameObject);
+            }
+            if (origin[counter, 5])
+            {
+                GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
+            }
 
-		counter++;
-
+            counter++;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
+        }
     }
 
     private void Update()
@@ -71,10 +86,12 @@ public class FollowPath : MonoBehaviour {
         if (Input.GetKeyDown("r"))
         {
             //Reset clone to level start
-            if (gameObject.transform.position.z == -1)
-                gameObject.GetComponent<Transform>().position = Vector3.back;
+            if (gameObject.transform.position.z == -100)
+            {
+                gameObject.GetComponent<Transform>().position = Vector3.back * 100;
+            }
             else
-                gameObject.GetComponent<Transform>().position = Vector3.zero;
+                gameObject.GetComponent<Transform>().position = player.GetComponent<Player>().startingPoint;
             counter = 0;
         }
 
@@ -115,32 +132,56 @@ public class FollowPath : MonoBehaviour {
         {
             Numbers(9);
         }
+
+        //animator information
+        if (origin[counter, 0])
+        {
+            vert = 1;
+        }
+        if (origin[counter, 1])
+        {
+            hor = -1;
+        }
+        if (origin[counter, 2])
+        {
+            vert = -1;
+        }
+        if (origin[counter, 3])
+        {
+            hor = 1;
+        }
+
+        bool isWalking = (Mathf.Abs(hor) + Mathf.Abs(vert)) > 0;
+
+        anim.SetBool("isWalking", isWalking);
+        if (isWalking)
+        {
+            anim.SetFloat("x", hor);
+            anim.SetFloat("y", vert);
+        }
+        hor = 0;
+        vert = 0;
+
     }
 
     private void Numbers(int num)
     {
-        clones = GameObject.FindGameObjectsWithTag("Clone");
-
         if (cloneNum == num)
         {
             foreach (GameObject clone in clones)
             {
                 //Reset clone to level start
-                if(clone.transform.position.z == -1)
-                    clone.GetComponent<Transform>().position = Vector3.back;
-                else
-                    clone.GetComponent<Transform>().position = Vector3.zero;
-                Debug.Log(clone.GetComponent<FollowPath>().cloneNum);
+                if(clone.transform.position.z != -100)
+                    clone.GetComponent<Transform>().position = player.GetComponent<Player>().startingPoint;
                 clone.GetComponent<FollowPath>().counter = 0;
             }
             player.ResetLevel();
-            Debug.Log("Bye bye!");
             DestroyClone();
         }
     }
 
     private void DestroyClone()
     {
-        gameObject.GetComponent<Transform>().Translate(0, 0, -1);
+        gameObject.GetComponent<Transform>().position = Vector3.back * 100;
     }
 }
