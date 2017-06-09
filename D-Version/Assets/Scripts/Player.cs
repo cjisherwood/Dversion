@@ -21,7 +21,7 @@ public class Player : MonoBehaviour, ICloneable {
     private ulong counter; //Counts the current frame number since scene loading/clone creation/level reset.
     private ulong limit; //The present limit to how many frames we will keep track of player movement information.
                          //Increases dynamically as the level drags on to prevent overuse of system memory.
-    private int numOfClones; //The number of clones presently in the level.
+    public int numOfClones; //The number of clones presently in the level.
     public int cloneLimit; //Limitation on how many clones there may be in the level. This may be set on a per-level basis.
     public GameObject clone; //For Instantiation of future clones.
 
