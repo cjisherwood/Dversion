@@ -21,6 +21,8 @@ public class PauseMenu : MonoBehaviour
         isPauseOpen = false;
 
         MenuCameraZoom = GameObject.Find("PauseMenuController").GetComponent<MenuController>();
+
+        unpauseTimer.text = "";
     }
 
     void Update ()
@@ -35,8 +37,7 @@ public class PauseMenu : MonoBehaviour
                 }
                 else
                 {
-                    MenuCameraZoom.StartCoroutine(StartTimer(3));
-                    Time.timeScale = 1;
+                    StartCoroutine(StartTimer(1));
                     LaunchPauseMenu("Hide");
 
                     Cursor.visible = false;
@@ -52,36 +53,28 @@ public class PauseMenu : MonoBehaviour
                 isPauseOpen = true;
             }
         }
-
-        Debug.Log("Real Time is " + Time.realtimeSinceStartup +
-            "Current Time is " + Time.time);
     }
 
     public void LaunchPauseMenu(string launch)
     {
         pauseMenuUI.SetTrigger(launch);
-        
     }
 
-    IEnumerator StartTimer(int value)
+    /*IEnumerator StartTimer(int value)
     {
         float pauseEndTime = Time.realtimeSinceStartup + value;
-
-        Debug.Log("PausedTime Starts at " + pauseEndTime);
-
+        
         while (Time.realtimeSinceStartup < pauseEndTime)
         {
-            Debug.Log("PausedTime is " + pauseEndTime);
-
-            if (Time.realtimeSinceStartup > Time.time + 1 && Time.realtimeSinceStartup <= Time.time + 2)
+            if (Time.realtimeSinceStartup > 1 && Time.realtimeSinceStartup <= 2)
                 // Display 3
                 unpauseTimer.text = "3";
 
-            else if (Time.realtimeSinceStartup > Time.time + 2 && Time.realtimeSinceStartup <= Time.time + 3)
+            else if (Time.realtimeSinceStartup > 2 && Time.realtimeSinceStartup <= 3)
                 // Display 2
                 unpauseTimer.text = "2";
 
-            else if (Time.realtimeSinceStartup > Time.time + 3 && Time.realtimeSinceStartup <= Time.time + 4)
+            else if (Time.realtimeSinceStartup > 3 && Time.realtimeSinceStartup <= 4)
                 // Display 1
                 unpauseTimer.text = "1";
 
@@ -90,7 +83,20 @@ public class PauseMenu : MonoBehaviour
 
             yield return null;
         }
+    }*/
 
-        Debug.Log("PausedTime ends at " + pauseEndTime);
+    IEnumerator StartTimer(int value)
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            unpauseTimer.text = (i + 1).ToString();
+            yield return new WaitForSecondsRealtime(value);
+
+            if (i == 0)
+            {
+                unpauseTimer.text = "";
+                Time.timeScale = 1;
+            }
+        }
     }
 }

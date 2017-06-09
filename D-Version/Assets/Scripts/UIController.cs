@@ -13,6 +13,12 @@ public class UIController : MonoBehaviour
     Player cloneNumScript;
     public int cloneNumber;
 
+    public bool coolingDown;
+    public float waitTime;
+
+    public Text interactionE;
+    public Text lockedDoor;
+
     void Start()
     {
         Time.timeScale = 1;
@@ -22,6 +28,12 @@ public class UIController : MonoBehaviour
         {
             InactiveImg[i].enabled = false;
         }
+
+        coolingDown = true;
+        waitTime = 0.5f;
+
+        interactionE.enabled = false;
+        lockedDoor.enabled = false;
     }
 
     void Update()
@@ -29,26 +41,23 @@ public class UIController : MonoBehaviour
         cloneNumber = cloneNumScript.CalcNextCloneNum();
         //Debug.Log("Clone Number is " + cloneNumber);
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (coolingDown)
         {
-            if (cloneNumber == 1)
-                activeImg[0].fillAmount += 1.0f;
-            if (cloneNumber == 2)
-                activeImg[1].fillAmount += 1.0f;
-            if (cloneNumber == 3)
-                activeImg[2].fillAmount += 1.0f;
-            if (cloneNumber == 4)
-                activeImg[3].fillAmount += 1.0f;
-            if (cloneNumber == 5)
-                activeImg[4].fillAmount += 1.0f;
-            if (cloneNumber == 6)
-                activeImg[5].fillAmount += 1.0f;
-            if (cloneNumber == 7)
-                activeImg[6].fillAmount += 1.0f;
-            if (cloneNumber == 8)
-                activeImg[7].fillAmount += 1.0f;
-            if (cloneNumber == 9)
-                activeImg[8].fillAmount += 1.0f;
+            activeImg[cloneNumber].fillAmount += 1.0f / waitTime * Time.deltaTime;
+            
+            if (activeImg[cloneNumber].fillAmount == 1)
+                coolingDown = false;
         }
+        else
+        {
+            activeImg[cloneNumber].fillAmount -= 1.0f / waitTime * Time.deltaTime;
+      
+            if (activeImg[cloneNumber].fillAmount == 0)
+                coolingDown = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            if (activeImg[cloneNumber].fillAmount != 1)
+                activeImg[cloneNumber].fillAmount = 1;
     }
 }
