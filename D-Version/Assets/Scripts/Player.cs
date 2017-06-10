@@ -113,13 +113,9 @@ public class Player : MonoBehaviour, ICloneable {
             GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().PutDown(gameObject);
         }
 
-<<<<<<< HEAD
-        if (counter + 1 > limit)
-=======
         counter++; //Frame over. Next frame...
 
         if (counter >= limit)
->>>>>>> 372433e9c750a02a9ea2cc3a8e5b1367b4736ead
         {
             limit += 3600; //Add a minute
             bool[,] newOrigin = (bool[,])origin.Clone();

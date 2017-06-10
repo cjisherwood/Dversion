@@ -60,31 +60,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetTrigger(launch);
     }
 
-    /*IEnumerator StartTimer(int value)
-    {
-        float pauseEndTime = Time.realtimeSinceStartup + value;
-        
-        while (Time.realtimeSinceStartup < pauseEndTime)
-        {
-            if (Time.realtimeSinceStartup > 1 && Time.realtimeSinceStartup <= 2)
-                // Display 3
-                unpauseTimer.text = "3";
-
-            else if (Time.realtimeSinceStartup > 2 && Time.realtimeSinceStartup <= 3)
-                // Display 2
-                unpauseTimer.text = "2";
-
-            else if (Time.realtimeSinceStartup > 3 && Time.realtimeSinceStartup <= 4)
-                // Display 1
-                unpauseTimer.text = "1";
-
-            else
-                unpauseTimer.text = "";
-
-            yield return null;
-        }
-    }*/
-
     IEnumerator StartTimer(int value)
     {
         for (int i = 2; i >= 0; i--)

@@ -49,11 +49,16 @@ public class MenuController : MonoBehaviour
         else
             fullScreenMode.isOn = false;
 
-        //Finding the game objets with the specified type
-        pauseMenu = GameObject.Find("UICtrl").GetComponent<PauseMenu>();
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            //Finding the game objets with the specified type
+            pauseMenu = GameObject.Find("UICtrl").GetComponent<PauseMenu>();
+
+            //Disables the exit game menu options
+            exitGameMenu.SetActive(false);
+        }
         
-        //Disables the exit game menu options
-        exitGameMenu.SetActive(false);
+        
     }
 
     public void Update()
@@ -84,11 +89,13 @@ public class MenuController : MonoBehaviour
     //If "Play" button is pressed in the game, it will bring the player right back to the existing gameplay.
     public void OptionsPlayButton()
     {
-        Time.timeScale = 1;
         pauseMenu.LaunchPauseMenu("Hide");
 
         Cursor.visible = false;
         pauseMenu.isPauseOpen = false;
+
+        //Does this next line work? check it at meeting
+        StartCoroutine(GameObject.Find("UICtrl").GetComponent<PauseMenu>().unpauseTimer.ToString());
     }
     #endregion
 
