@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     public Text unpauseTimer;
 
-    MenuController MenuCameraZoom;    
+    [SerializeField] private MenuController MenuCameraZoom;    
 
     void Start ()
     {
@@ -31,18 +31,13 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPauseOpen)
             {
-                if (!MenuCameraZoom.playButton.IsInteractable())
-                {
-                    MenuCameraZoom.BackButton();
-                }
-                else
-                {
-                    StartCoroutine(StartTimer(1));
+                MenuCameraZoom.OptionsPlayButton();
+               
+                StartCoroutine(StartTimer(1));
                     LaunchPauseMenu("Hide");
 
                     Cursor.visible = false;
                     isPauseOpen = false;
-                }
             }
             else
             {
@@ -60,7 +55,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetTrigger(launch);
     }
 
-    IEnumerator StartTimer(int value)
+    public IEnumerator StartTimer(int value)
     {
         for (int i = 2; i >= 0; i--)
         {

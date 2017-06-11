@@ -22,23 +22,25 @@ public class UIController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        cloneNumScript = GameObject.Find("Player").GetComponent<Player> ();
+        //cloneNumScript = GameObject.Find("Player").GetComponent<Player> ();
         
-        for (int i = cloneNumScript.cloneLimit; i < 9; i++)
-        {
-            InactiveImg[i].enabled = false;
-        }
+        //for (int i = cloneNumScript.cloneLimit; i < 9; i++)
+        //{
+           // InactiveImg[i].enabled = false;
+        //}
 
         coolingDown = true;
         waitTime = 0.5f;
 
+        Debug.Log("menus before " + (interactionE.isActiveAndEnabled ? "True" : "False"));
         interactionE.enabled = false;
         lockedDoor.enabled = false;
+        Debug.Log("menus after " + (interactionE.isActiveAndEnabled ? "True" : "False"));
     }
 
     void Update()
     {
-        cloneNumber = cloneNumScript.CalcNextCloneNum();
+        //cloneNumber = cloneNumScript.CalcNextCloneNum();
         //Debug.Log("Clone Number is " + cloneNumber);
 
         if (coolingDown)

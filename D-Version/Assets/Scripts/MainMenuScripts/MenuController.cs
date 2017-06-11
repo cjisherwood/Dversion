@@ -53,12 +53,13 @@ public class MenuController : MonoBehaviour
         {
             //Finding the game objets with the specified type
             pauseMenu = GameObject.Find("UICtrl").GetComponent<PauseMenu>();
+        }
 
+        if (GameObject.Find("ExitGameMenu"))
+        {
             //Disables the exit game menu options
             exitGameMenu.SetActive(false);
         }
-        
-        
     }
 
     public void Update()
@@ -94,8 +95,8 @@ public class MenuController : MonoBehaviour
         Cursor.visible = false;
         pauseMenu.isPauseOpen = false;
 
-        //Does this next line work? check it at meeting
-        StartCoroutine(GameObject.Find("UICtrl").GetComponent<PauseMenu>().unpauseTimer.ToString());
+        //Need to add a way to StartCoroutine and set a 3 second timer after pressing play.
+        StartCoroutine(pauseMenu.StartTimer(1));
     }
     #endregion
 
@@ -147,18 +148,25 @@ public class MenuController : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Player"))
         {
-            CameraZoom("InGameZoomOut");
+            if (exitMenu.activeSelf)
+            {
+                exitMenu.SetActive(false);
+            }
+            else
+            {
+                optionsMenu.SetActive(false);
+                CameraZoom("InGameZoomOut");
+            }
         }
         else
         {
             CameraZoom("ZoomOut");
         }
-
+        
         playButton.interactable = true;
         exitButton.interactable = true;
         optionsButton.interactable = true;
 
-        optionsMenu.SetActive(false);
     }
     #endregion Options Methods
 
@@ -290,10 +298,8 @@ public class MenuController : MonoBehaviour
 
         exitMenu.SetActive(false);
 
-        if (GameObject.FindGameObjectWithTag("Player")) 
-        {
+        if (GameObject.Find("ExitGameMenu"))
             exitGameMenu.SetActive(false);
-        }
     }
     #endregion Exit Methods
 
