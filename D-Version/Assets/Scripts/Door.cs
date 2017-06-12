@@ -14,15 +14,11 @@ public class Door : MonoBehaviour
 	void Start ()
     {
         open = GetComponent<Animator>();
-<<<<<<< HEAD
-        doorOpened = false;
-        wasActive = gameObject.active;
 
         UIText = GameObject.Find("UICtrl").GetComponent<UIController>();
-=======
+
         doorOpened = !gameObject.activeSelf;
         wasActive = gameObject.activeSelf;
->>>>>>> 8e37a154b0b2c11965b4536f55a68aa719e25739
 	}
 
     private void Update()
