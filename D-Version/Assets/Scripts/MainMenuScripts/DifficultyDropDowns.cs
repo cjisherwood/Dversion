@@ -10,6 +10,9 @@ public class DifficultyDropDowns : MonoBehaviour, IPointerEnterHandler, IPointer
     private Vector3 scaleDif;
 
     public bool isOpenDif;
+
+    public AudioSource swooshIn;
+    public AudioSource swooshOut;
     
     void Start ()
     {
@@ -28,6 +31,7 @@ public class DifficultyDropDowns : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        swooshIn.Play();
         isOpenDif = true;
 
         Debug.Log("Entering difficulty and value is " + isOpenDif);
@@ -35,6 +39,7 @@ public class DifficultyDropDowns : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        swooshOut.Play();
         isOpenDif = false;
 
         Debug.Log("Exiting difficulty and value is " + isOpenDif);
