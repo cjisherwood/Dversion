@@ -96,7 +96,6 @@ public class Interaction : MonoBehaviour
                                 break;
                             case "Switch": //Make work when item is held
                                 activated = !activated;
-                                Debug.Log(activated);
                                 Activate();
                                 break;
                             default:
@@ -137,11 +136,21 @@ public class Interaction : MonoBehaviour
     {
         if (buddy1 != null)
         {
+            if (buddy1.GetComponent<Door>().wasActive == false)
+            {
+                player.GetComponent<Player>().allObjectsToReset.Add(buddy1);
+                player.GetComponent<Player>().allObjectsToReset[player.GetComponent<Player>().allObjectsToReset.Count - 1].GetComponent<Door>().wasActive = false;
+            }
             buddy1.SetActive(!buddy1.activeSelf);
         }
 
         if (buddy2 != null)
         {
+            if (buddy1.GetComponent<Door>().wasActive == false)
+            {
+                player.GetComponent<Player>().allObjectsToReset.Add(buddy2);
+                player.GetComponent<Player>().allObjectsToReset[player.GetComponent<Player>().allObjectsToReset.Count - 1].GetComponent<Door>().wasActive = false;
+            }
             buddy2.SetActive(!buddy2.activeSelf);
         }
     }
