@@ -8,12 +8,16 @@ public class Door : MonoBehaviour
     private bool doorOpened;
     public bool wasActive;
 
+    UIController UIText;
+
 	// Use this for initialization
 	void Start ()
     {
         open = GetComponent<Animator>();
         doorOpened = false;
         wasActive = gameObject.active;
+
+        UIText = GameObject.Find("UICtrl").GetComponent<UIController>();
 	}
 
     private void Update()
@@ -39,7 +43,10 @@ public class Door : MonoBehaviour
                     OpenDoor(collision.gameObject);
                 }
             }
-            
+            else
+            {
+                UIText.lockedDoor.enabled = true;
+            }
         }
         if (collision.gameObject.tag == "Clone")
         {
@@ -51,6 +58,11 @@ public class Door : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        UIText.lockedDoor.enabled = false;
     }
 
     public void OpenDoor(GameObject aaron)
