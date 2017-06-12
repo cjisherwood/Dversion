@@ -14,6 +14,7 @@ public class Interaction : MonoBehaviour
     public Vector3 startingPoint;
 
     UIController UIText;
+    //MenuController 
 
 	// Use this for initialization
 	void Start ()
@@ -51,6 +52,7 @@ public class Interaction : MonoBehaviour
     {
         gameObject.transform.Translate(0, 0, -100);
         gameObject.GetComponent<Collider2D>().enabled = false;
+
         return gameObject;
     }
 
