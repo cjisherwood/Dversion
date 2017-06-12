@@ -13,24 +13,44 @@ public class Interaction : MonoBehaviour
     public GameObject buddy2;
     public Vector3 startingPoint;
 
+    UIController UIText;
+
 	// Use this for initialization
 	void Start ()
     {
         me = gameObject.tag;
         activated = false;
         startingPoint = transform.position;
+
+        UIText = GameObject.Find("UICtrl").GetComponent<UIController>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         Interact(player.gameObject);
+    }
 
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player" && gameObject.GetComponent<Collider2D>().enabled == true)
+        {
+            UIText.interactionE.enabled = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            UIText.interactionE.enabled = false;
+        }
     }
 
     public GameObject PickUp()
     {
         gameObject.transform.Translate(0, 0, -100);
+        gameObject.GetComponent<Collider2D>().enabled = false;
         return gameObject;
     }
 
@@ -42,6 +62,7 @@ public class Interaction : MonoBehaviour
             {
                 actor.GetComponent<Player>().item = null;
                 gameObject.transform.position = actor.transform.position;
+                gameObject.GetComponent<Collider2D>().enabled = true;
             }
         }
 
@@ -51,6 +72,7 @@ public class Interaction : MonoBehaviour
             {
                 actor.GetComponent<FollowPath>().item = null;
                 gameObject.transform.position = actor.transform.position;
+                gameObject.GetComponent<Collider2D>().enabled = true;
             }
         }
     }
