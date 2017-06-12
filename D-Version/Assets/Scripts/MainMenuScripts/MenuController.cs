@@ -22,6 +22,13 @@ public class MenuController : MonoBehaviour
 
     Animator animator;   //Animator used to animate the zoom in motion for the options menu
 
+    public AudioSource btnClickSound;
+    public AudioSource booSound;
+    public AudioSource backgroundSound;
+
+    public Slider musicSlider;
+    public Toggle musicToggle;
+
     //Variables used only on in-game. 
     PauseMenu pauseMenu;        //Gets access to the script PauseMenu
     public GameObject exitGameMenu;    //Gets access to the exit game options when clicked on "DESKTOP"
@@ -60,6 +67,9 @@ public class MenuController : MonoBehaviour
             //Disables the exit game menu options
             exitGameMenu.SetActive(false);
         }
+
+        musicToggle.isOn = true;
+        musicSlider.value = 1;
     }
 
     public void Update()
@@ -77,6 +87,8 @@ public class MenuController : MonoBehaviour
                 fullScreenMode.isOn = false;
             }
         }
+
+        backgroundSound.volume = musicSlider.value;
     }
     #endregion
 
@@ -85,6 +97,7 @@ public class MenuController : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        btnClickSound.Play();
     }
 
     //If "Play" button is pressed in the game, it will bring the player right back to the existing gameplay.
@@ -94,6 +107,7 @@ public class MenuController : MonoBehaviour
 
         Cursor.visible = false;
         pauseMenu.isPauseOpen = false;
+        btnClickSound.Play();
 
         //Need to add a way to StartCoroutine and set a 3 second timer after pressing play.
         StartCoroutine(pauseMenu.StartTimer(1));
@@ -116,6 +130,7 @@ public class MenuController : MonoBehaviour
             CameraZoom("ZoomIn");
         }
 
+        btnClickSound.Play();
         playButton.interactable = false;
         exitButton.interactable = false;
         optionsButton.interactable = false;
@@ -137,7 +152,7 @@ public class MenuController : MonoBehaviour
             Screen.fullScreen = false;
             Debug.Log("Should exit full screen in application");
         }
-
+        btnClickSound.Play();
     }
 
     //When back button is pressed:
@@ -160,13 +175,29 @@ public class MenuController : MonoBehaviour
         }
         else
         {
+            optionsMenu.SetActive(false);
             CameraZoom("ZoomOut");
         }
-        
+
+        btnClickSound.Play();
         playButton.interactable = true;
         exitButton.interactable = true;
         optionsButton.interactable = true;
 
+    }
+
+    public void MusicControl()
+    {
+        if (musicToggle.isOn)
+        {
+            backgroundSound.mute = true;
+            musicToggle.isOn = false;
+        }
+        else
+        {
+            backgroundSound.mute = false;
+            musicToggle.isOn = true;
+        }
     }
     #endregion Options Methods
 
@@ -179,6 +210,7 @@ public class MenuController : MonoBehaviour
 
         easy = true;
         medium = hard = false;
+        btnClickSound.Play();
     }
 
     //See method EasyButton() at the beginning or region for description in this method
@@ -188,6 +220,7 @@ public class MenuController : MonoBehaviour
 
         medium = true;
         easy = hard = false;
+        btnClickSound.Play();
     }
 
     //See method EasyButton() at the beginning or region for description in this method
@@ -197,6 +230,7 @@ public class MenuController : MonoBehaviour
 
         hard = true;
         easy = medium = false;
+        btnClickSound.Play();
     }
     #endregion
 
@@ -207,6 +241,7 @@ public class MenuController : MonoBehaviour
     {
         resolution.text = "3:2";
         Screen.SetResolution(1080, 720, fullScreenMode.isOn);
+        btnClickSound.Play();
     }
 
     //Refer to method ThreeToTwoRes() at the beggining of region for a description on this method
@@ -214,6 +249,7 @@ public class MenuController : MonoBehaviour
     {
         resolution.text = "4:3";
         Screen.SetResolution(1024, 768, fullScreenMode.isOn);
+        btnClickSound.Play();
     }
 
     //Refer to method ThreeToTwoRes() at the beggining of region for a description on this method
@@ -221,6 +257,7 @@ public class MenuController : MonoBehaviour
     {
         resolution.text = "5:3";
         Screen.SetResolution(1280, 768, fullScreenMode.isOn);
+        btnClickSound.Play();
     }
 
     //Refer to method ThreeToTwoRes() at the beggining of region for a description on this method
@@ -228,6 +265,7 @@ public class MenuController : MonoBehaviour
     {
         resolution.text = "5:4";
         Screen.SetResolution(960, 768, fullScreenMode.isOn);
+        btnClickSound.Play();
     }
 
     //Refer to method ThreeToTwoRes() at the beggining of region for a description on this method
@@ -235,6 +273,7 @@ public class MenuController : MonoBehaviour
     {
         resolution.text = "8:5";
         Screen.SetResolution(1280, 800, fullScreenMode.isOn);
+        btnClickSound.Play();
     }
 
     //Refer to method ThreeToTwoRes() at the beggining of region for a description on this method
@@ -242,6 +281,7 @@ public class MenuController : MonoBehaviour
     {
         resolution.text = "16:9";
         Screen.SetResolution(1280, 720, fullScreenMode.isOn);
+        btnClickSound.Play();
     }
 
     //Refer to method ThreeToTwoRes() at the beggining of region for a description on this method
@@ -249,6 +289,7 @@ public class MenuController : MonoBehaviour
     {
         resolution.text = "32:15";
         Screen.SetResolution(1280, 600, fullScreenMode.isOn);
+        btnClickSound.Play();
     }
     #endregion
 
@@ -258,6 +299,7 @@ public class MenuController : MonoBehaviour
     // *and the exit menu will be active.
     public void LoadExit()
     {
+        btnClickSound.Play();
         playButton.interactable = false;
         exitButton.interactable = false;
         optionsButton.interactable = false;
@@ -268,12 +310,14 @@ public class MenuController : MonoBehaviour
     //Is "HOME" is pressed, player will be directed to main menu
     public void ExitHomeButton()
     {
+        btnClickSound.Play();
         SceneManager.LoadScene("Main_Menu");
     }
 
     //By pressing "DESKTOP" exit menu disables and exit game menu enables
     public void ExitDesktopButton()
     {
+        booSound.Play();
         exitMenu.SetActive(false);
         exitGameMenu.SetActive(true);
     }
@@ -282,7 +326,6 @@ public class MenuController : MonoBehaviour
     public void ExitYesButton()
     {
         Debug.Log("Should quit if in application mode. Will not quit in Unity editor.");
-
         Application.Quit();
     }
 
@@ -291,7 +334,7 @@ public class MenuController : MonoBehaviour
     // *and set the exit menu to not active
     public void ExitNoButton()
     {
-        
+        btnClickSound.Play();
         playButton.interactable = true;
         exitButton.interactable = true;
         optionsButton.interactable = true;

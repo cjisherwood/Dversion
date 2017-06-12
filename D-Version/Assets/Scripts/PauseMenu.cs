@@ -34,10 +34,10 @@ public class PauseMenu : MonoBehaviour
                 MenuCameraZoom.OptionsPlayButton();
                
                 StartCoroutine(StartTimer(1));
-                    LaunchPauseMenu("Hide");
+                LaunchPauseMenu("Hide");
 
-                    Cursor.visible = false;
-                    isPauseOpen = false;
+                Cursor.visible = false;
+                isPauseOpen = false;
             }
             else
             {
