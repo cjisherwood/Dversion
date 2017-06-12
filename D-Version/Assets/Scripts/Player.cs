@@ -21,7 +21,7 @@ public class Player : MonoBehaviour, ICloneable {
     private ulong counter; //Counts the current frame number since scene loading/clone creation/level reset.
     private ulong limit; //The present limit to how many frames we will keep track of player movement information.
                          //Increases dynamically as the level drags on to prevent overuse of system memory.
-    public int numOfClones; //The number of clones presently in the level.
+    private int numOfClones; //The number of clones presently in the level.
     public int cloneLimit; //Limitation on how many clones there may be in the level. This may be set on a per-level basis.
     public GameObject clone; //For Instantiation of future clones.
 
@@ -170,10 +170,13 @@ public class Player : MonoBehaviour, ICloneable {
                     if (reset.GetComponent<Door>().wasActive)
                     {
                         reset.SetActive(true);
-                        Debug.Log("Was active");
+                        Debug.Log("Hello");
                     }
                     else
+                    {
                         reset.SetActive(false);
+                        Debug.Log(reset.GetComponent<Door>().wasActive);
+                    }
                     break;
                 case "Switch":
                     //reset switch to default on/off state.

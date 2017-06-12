@@ -12,8 +12,8 @@ public class Door : MonoBehaviour
 	void Start ()
     {
         open = GetComponent<Animator>();
-        doorOpened = false;
-        wasActive = gameObject.active;
+        doorOpened = !gameObject.activeSelf;
+        wasActive = gameObject.activeSelf;
 	}
 
     private void Update()

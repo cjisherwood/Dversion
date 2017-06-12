@@ -65,8 +65,14 @@ public class FollowPath : MonoBehaviour {
 
             if (origin[counter, 4])
             {
-                GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
-                GameObject.FindGameObjectWithTag("Switch").GetComponent<Interaction>().Interact(gameObject);
+                if(GameObject.FindGameObjectWithTag("Key") != null)
+                    GameObject.FindGameObjectWithTag("Key").GetComponent<Interaction>().Interact(gameObject);
+                GameObject[] switches = GameObject.FindGameObjectsWithTag("Switch");
+                foreach(GameObject mySwitch in switches)
+                {
+                    if (mySwitch != null)
+                        mySwitch.GetComponent<Interaction>().Interact(gameObject);
+                }
             }
             if (origin[counter, 5])
             {
