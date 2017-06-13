@@ -25,6 +25,10 @@ public class MenuController : MonoBehaviour
     public AudioSource btnClickSound;
     public AudioSource booSound;
     public AudioSource backgroundSound;
+    public AudioSource elevatorSound;
+    public AudioSource doorLocked;
+    public AudioSource doorUnlocked;
+    public AudioSource tickSound;
 
     public Slider musicSlider;
     public Toggle musicToggle;
@@ -78,11 +82,15 @@ public class MenuController : MonoBehaviour
         //the key will act as the back button inside options.
         //If key pressed in the main menu, it will act as the full screen toggle inside options
         if (Input.GetKeyDown(KeyCode.Escape))
-        { 
+        {
             if (difficulty.isActiveAndEnabled)
+            {
+                btnClickSound.Play();
                 BackButton();
+            }
             else if (playButton.IsInteractable() && Screen.fullScreen)
             {
+                btnClickSound.Play();
                 Screen.fullScreen = false;
                 fullScreenMode.isOn = false;
             }
@@ -325,6 +333,8 @@ public class MenuController : MonoBehaviour
     //Pressing yes inside the exit menu will exit the application
     public void ExitYesButton()
     {
+        //Add play boo sound
+   
         Debug.Log("Should quit if in application mode. Will not quit in Unity editor.");
         Application.Quit();
     }

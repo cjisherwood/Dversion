@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     public bool wasActive;
 
     UIController UIText;
+    MenuController menuSounds;
 
 	// Use this for initialization
 	void Start ()
@@ -16,6 +17,7 @@ public class Door : MonoBehaviour
         open = GetComponent<Animator>();
 
         UIText = GameObject.Find("UICtrl").GetComponent<UIController>();
+        menuSounds = GameObject.Find("PauseMenuController").GetComponent<MenuController>();
 
         doorOpened = !gameObject.activeSelf;
         wasActive = gameObject.activeSelf;
@@ -42,11 +44,13 @@ public class Door : MonoBehaviour
                 if (collision.gameObject.GetComponent<Player>().item.tag == "Key")
                 {
                     OpenDoor(collision.gameObject);
+                    menuSounds.doorUnlocked.Play();
                 }
             }
             else
             {
                 UIText.lockedDoor.enabled = true;
+                menuSounds.doorLocked.Play();
             }
         }
         if (collision.gameObject.tag == "Clone")
@@ -69,6 +73,7 @@ public class Door : MonoBehaviour
     public void OpenDoor(GameObject aaron)
     {
         open.SetTrigger("Open");
+        gameObject.GetComponent<Collider2D>().enabled = false;
         if (aaron.tag == "Player")
         {
             aaron.GetComponent<Player>().item = aaron;

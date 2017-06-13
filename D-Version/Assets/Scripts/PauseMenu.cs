@@ -62,6 +62,7 @@ public class PauseMenu : MonoBehaviour
         for (int i = 2; i >= 0; i--)
         {
             unpauseTimer.text = (i + 1).ToString();
+            MenuCameraZoom.tickSound.Play();
             yield return new WaitForSecondsRealtime(value);
 
             if (i == 0)

@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
 
     Player cloneNumScript;
     public int cloneNumber;
+    public int cloneLimit;
 
     public bool coolingDown;
     public float waitTime;
@@ -22,12 +23,13 @@ public class UIController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        //cloneNumScript = GameObject.Find("Player").GetComponent<Player> ();
+        cloneNumScript = GameObject.Find("Player").GetComponent<Player> ();
+        cloneLimit = cloneNumScript.cloneLimit;
         
-        //for (int i = cloneNumScript.cloneLimit; i < 9; i++)
-        //{
-           // InactiveImg[i].enabled = false;
-        //}
+        for (int i = cloneLimit; i < 9; i++)
+        {
+            InactiveImg[i].enabled = false;
+        }
 
         coolingDown = true;
         waitTime = 0.5f;
@@ -40,26 +42,34 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        //cloneNumber = cloneNumScript.CalcNextCloneNum();
-        //Debug.Log("Clone Number is " + cloneNumber);
+        cloneNumber = cloneNumScript.CalcNextCloneNum();
 
-        if (coolingDown)
+        CloneNumUI(cloneNumber);
+    }
+
+    public void CloneNumUI(int value)
+    {
+        if (cloneNumber < cloneLimit)
         {
-            activeImg[cloneNumber].fillAmount += 1.0f / waitTime * Time.deltaTime;
-            
-            if (activeImg[cloneNumber].fillAmount == 1)
-                coolingDown = false;
-        }
-        else
-        {
-            activeImg[cloneNumber].fillAmount -= 1.0f / waitTime * Time.deltaTime;
-      
-            if (activeImg[cloneNumber].fillAmount == 0)
-                coolingDown = true;
+            if (coolingDown)
+            {
+                activeImg[cloneNumber].fillAmount += 1.0f / waitTime * Time.deltaTime;
+
+                if (activeImg[cloneNumber].fillAmount == 1)
+                    coolingDown = false;
+            }
+            else
+            {
+                activeImg[cloneNumber].fillAmount -= 1.0f / waitTime * Time.deltaTime;
+
+                if (activeImg[cloneNumber].fillAmount == 0)
+                    coolingDown = true;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-            if (activeImg[cloneNumber].fillAmount != 1)
-                activeImg[cloneNumber].fillAmount = 1;
+        for (int i = (cloneNumber - 1); i >= 0; i--)
+        {
+            activeImg[i].fillAmount = 1;
+        }
     }
 }

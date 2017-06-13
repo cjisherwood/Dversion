@@ -19,6 +19,8 @@ public class FollowPath : MonoBehaviour {
 
     Animator anim;
 
+    UIController cloneUI;
+
     // Use this for initialization
     void Start ()
     {
@@ -35,6 +37,7 @@ public class FollowPath : MonoBehaviour {
         origin = player.GetComponent<Player>().originForClone;
         cloneNum = player.GetComponent<Player>().CalcNextCloneNum();
 
+        cloneUI = GameObject.Find("UICtrl").GetComponent<UIController>();
 
         anim = GetComponent<Animator>();
     }
@@ -104,38 +107,47 @@ public class FollowPath : MonoBehaviour {
         //If you hit the number keys, destroy old clones and remap.
         if (Input.GetKeyDown("1"))
         {
+            cloneUI.CloneNumUI(0);
             Numbers(1);
         }
         if (Input.GetKeyDown("2"))
         {
+            cloneUI.CloneNumUI(1);
             Numbers(2);
         }
         if (Input.GetKeyDown("3"))
         {
+            cloneUI.CloneNumUI(2);
             Numbers(3);
         }
         if (Input.GetKeyDown("4"))
         {
+            cloneUI.CloneNumUI(3);
             Numbers(4);
         }
         if (Input.GetKeyDown("5"))
         {
+            cloneUI.CloneNumUI(4);
             Numbers(5);
         }
         if (Input.GetKeyDown("6"))
         {
+            cloneUI.CloneNumUI(5);
             Numbers(6);
         }
         if (Input.GetKeyDown("7"))
         {
+            cloneUI.CloneNumUI(6);
             Numbers(7);
         }
         if (Input.GetKeyDown("8"))
         {
+            cloneUI.CloneNumUI(7);
             Numbers(8);
         }
         if (Input.GetKeyDown("9"))
         {
+            cloneUI.CloneNumUI(8);
             Numbers(9);
         }
 

@@ -14,7 +14,7 @@ public class Interaction : MonoBehaviour
     public Vector3 startingPoint;
 
     UIController UIText;
-    //MenuController 
+    MenuController menuSounds; 
 
 	// Use this for initialization
 	void Start ()
@@ -24,7 +24,8 @@ public class Interaction : MonoBehaviour
         startingPoint = transform.position;
 
         UIText = GameObject.Find("UICtrl").GetComponent<UIController>();
-	}
+        menuSounds = GameObject.Find("PauseMenuController").GetComponent<MenuController>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -52,6 +53,7 @@ public class Interaction : MonoBehaviour
     {
         gameObject.transform.Translate(0, 0, -100);
         gameObject.GetComponent<Collider2D>().enabled = false;
+        menuSounds.tickSound.Play();
 
         return gameObject;
     }
@@ -65,6 +67,7 @@ public class Interaction : MonoBehaviour
                 actor.GetComponent<Player>().item = null;
                 gameObject.transform.position = actor.transform.position;
                 gameObject.GetComponent<Collider2D>().enabled = true;
+                menuSounds.tickSound.Play();
             }
         }
 
@@ -89,6 +92,7 @@ public class Interaction : MonoBehaviour
                 {
                     if (Vector3.Distance(actor.transform.position, gameObject.transform.position) < 0.5)
                     {
+                        menuSounds.tickSound.Play();
                         switch (me)
                         {
                             case "Key":
