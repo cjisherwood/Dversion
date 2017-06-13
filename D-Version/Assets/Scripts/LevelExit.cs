@@ -8,6 +8,7 @@ public class LevelExit : MonoBehaviour
     private bool levelComplete;
     private Collider2D exitCol;
     Animator elevatorAnim;
+    private SpriteRenderer elevator;
 
 	// Use this for initialization
 	void Start ()
@@ -15,6 +16,7 @@ public class LevelExit : MonoBehaviour
         levelComplete = false;
         elevatorAnim = gameObject.GetComponent<Animator>();
         exitCol = GetComponentInChildren<Collider2D>();
+        elevator = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -48,6 +50,8 @@ public class LevelExit : MonoBehaviour
             {
                 ElevatorAnim("Close");
                 levelComplete = true;
+                elevator.sortingLayerName = "Default";
+                elevator.sortingOrder = 10;
             }
             if (i == 5)
             {
