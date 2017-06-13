@@ -1,0 +1,580 @@
+fileFormatVersion: 2
+guid: 8e68520c5597aff4dbd10f3a6f588d30
+timeCreated: 1497314620
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ArronW_Sprite_Sheet_0
+    21300002: ArronW_Sprite_Sheet_1
+    21300004: ArronW_Sprite_Sheet_2
+    21300006: ArronW_Sprite_Sheet_3
+    21300008: ArronW_Sprite_Sheet_4
+    21300010: ArronW_Sprite_Sheet_5
+    21300012: ArronW_Sprite_Sheet_6
+    21300014: ArronW_Sprite_Sheet_7
+    21300016: ArronW_Sprite_Sheet_8
+    21300018: ArronW_Sprite_Sheet_9
+    21300020: ArronW_Sprite_Sheet_10
+    21300022: ArronW_Sprite_Sheet_11
+    21300024: ArronW_Sprite_Sheet_12
+    21300026: ArronW_Sprite_Sheet_13
+    21300028: ArronW_Sprite_Sheet_14
+    21300030: ArronW_Sprite_Sheet_15
+    21300032: ArronW_Sprite_Sheet_16
+    21300034: ArronW_Sprite_Sheet_17
+    21300036: ArronW_Sprite_Sheet_18
+    21300038: ArronW_Sprite_Sheet_19
+    21300040: ArronW_Sprite_Sheet_20
+    21300042: ArronW_Sprite_Sheet_21
+    21300044: ArronW_Sprite_Sheet_22
+    21300046: ArronW_Sprite_Sheet_23
+    21300048: ArronW_Sprite_Sheet_24
+    21300050: ArronW_Sprite_Sheet_25
+    21300052: ArronW_Sprite_Sheet_26
+    21300054: ArronW_Sprite_Sheet_27
+    21300056: ArronW_Sprite_Sheet_28
+    21300058: ArronW_Sprite_Sheet_29
+    21300060: ArronW_Sprite_Sheet_30
+    21300062: ArronW_Sprite_Sheet_31
+    21300064: ArronW_Sprite_Sheet_32
+    21300066: ArronW_Sprite_Sheet_33
+    21300068: ArronW_Sprite_Sheet_34
+    21300070: ArronW_Sprite_Sheet_35
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 453
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 451
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 452
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 459
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 451
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 462
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 389
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 400
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 400
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 415
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 401
+        width: 20
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 403
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 396
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 410
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 332
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 344
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 344
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 348
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 344
+        width: 29
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 344
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 359
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 281
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 294
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 292
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 295
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 292
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 292
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 304
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 244
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 241
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 240
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 240
+        width: 23
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 252
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 192
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 200
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ArronW_Sprite_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 152
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

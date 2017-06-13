@@ -13,6 +13,12 @@ public class Guard : MonoBehaviour {
     public static float chaseRange = 5.0f;
     public Transform[] path;
 
+    private Vector3 oldPosition;
+    private Vector3 newPosition;
+    private Vector3 midPosition;
+
+    Animator anim;
+
     void Start () 
 	{
         player = GameObject.FindGameObjectWithTag("Player");
@@ -52,6 +58,37 @@ public class Guard : MonoBehaviour {
         if (Input.GetKey("r"))
         {
             rb.MovePosition(startingPoint);
+        }
+    }
+
+      private void Update()
+    {
+        oldPosition = midPosition;
+        midPosition = newPosition;
+        newPosition = transform.position;
+        //animator information
+        float input_x  = newPosition.x - oldPosition.x;
+        float input_y = newPosition.y - oldPosition.y;
+
+        if(input_x > .090)
+            input_x = 1;
+        else if (input_x < -.090)
+            input_x = -1;
+
+
+        if (input_y > .09)
+            input_y = 1;
+        else if (input_y < -.09)
+            input_y = -1;
+
+        bool isWalking = (Mathf.Abs(input_x) + Mathf.Abs(input_y)) > 0;
+
+        anim.SetBool("isWalking", isWalking);
+
+        if (isWalking)
+        {
+            anim.SetFloat("x", input_x);
+            anim.SetFloat("y", input_y);
         }
     }
 
