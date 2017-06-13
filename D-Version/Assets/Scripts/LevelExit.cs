@@ -5,18 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    private bool levelComplete;
+    //private bool levelComplete;
     private Collider2D exitCol;
     Animator elevatorAnim;
     private SpriteRenderer elevator;
+    MenuController sounds;
 
 	// Use this for initialization
 	void Start ()
     {
-        levelComplete = false;
+        //levelComplete = false;
         elevatorAnim = gameObject.GetComponent<Animator>();
         exitCol = GetComponentInChildren<Collider2D>();
         elevator = gameObject.GetComponent<SpriteRenderer>();
+        sounds = GameObject.Find("PauseFromMainMenu").GetComponent<MenuController>();
 	}
 	
 	// Update is called once per frame
@@ -29,6 +31,7 @@ public class LevelExit : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            sounds.elevatorSound.Play();
             ElevatorAnim("Open");
             StartCoroutine(StartTimer());
         }
@@ -49,7 +52,7 @@ public class LevelExit : MonoBehaviour
             if (i == 3)
             {
                 ElevatorAnim("Close");
-                levelComplete = true;
+                //levelComplete = true;
                 elevator.sortingLayerName = "Default";
                 elevator.sortingOrder = 10;
             }

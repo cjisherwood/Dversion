@@ -88,42 +88,18 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown("e") || Input.GetKeyDown("enter"))
             {
-                if (player.GetComponent<Player>().item == null)
-                {
-                    if (Vector3.Distance(actor.transform.position, gameObject.transform.position) < 0.5)
-                    {
-                        menuSounds.tickSound.Play();
-                        switch (me)
-                        {
-                            case "Key":
-                                player.GetComponent<Player>().item = PickUp();
-                                break;
-                            case "Switch": //Make work when item is held
-                                activated = !activated;
-                                Activate();
-                                break;
-                            default:
-                                Debug.Log("Please attach the proper tag to this object.");
-                                break;
-                        }
-                    }
-                }
-            }
-        }
-
-
-        else
-        {
-            if (actor.GetComponent<FollowPath>().item == null)
-            {
                 if (Vector3.Distance(actor.transform.position, gameObject.transform.position) < 0.5)
                 {
+                    menuSounds.tickSound.Play();
                     switch (me)
                     {
                         case "Key":
-                            actor.GetComponent<FollowPath>().item = PickUp();
+                            if (actor.GetComponent<Player>().item == null)
+                            {
+                                actor.GetComponent<Player>().item = PickUp();
+                            } 
                             break;
-                        case "Switch":
+                        case "Switch": //Make work when item is held
                             activated = !activated;
                             Activate();
                             break;
@@ -134,28 +110,48 @@ public class Interaction : MonoBehaviour
                 }
             }
         }
+
+
+        else
+        {
+            if (Vector3.Distance(actor.transform.position, gameObject.transform.position) < 0.5)
+            {
+                switch (me)
+                {
+                    case "Key":
+                        if (actor.GetComponent<FollowPath>().item == null)
+                        {
+                            actor.GetComponent<FollowPath>().item = PickUp();
+                        }
+                        break;
+                    case "Switch":
+                        activated = !activated;
+                        Activate();
+                        break;
+                    default:
+                        Debug.Log("Please attach the proper tag to this object.");
+                        break;
+                }
+            }
+        }
     }
 
     public void Activate()
     {
         if (buddy1 != null)
         {
-            if (buddy1.GetComponent<Door>().wasActive == false)
-            {
-                player.GetComponent<Player>().allObjectsToReset.Add(buddy1);
-                player.GetComponent<Player>().allObjectsToReset[player.GetComponent<Player>().allObjectsToReset.Count - 1].GetComponent<Door>().wasActive = false;
-            }
-            buddy1.SetActive(!buddy1.activeSelf);
+            if (buddy1.GetComponent<Door>().doorOpened)
+                buddy1.GetComponent<Door>().CloseDoor(player.gameObject);
+            else if (!buddy1.GetComponent<Door>().doorOpened)
+                buddy1.GetComponent<Door>().OpenDoor(player.gameObject);
         }
 
         if (buddy2 != null)
         {
-            if (buddy1.GetComponent<Door>().wasActive == false)
-            {
-                player.GetComponent<Player>().allObjectsToReset.Add(buddy2);
-                player.GetComponent<Player>().allObjectsToReset[player.GetComponent<Player>().allObjectsToReset.Count - 1].GetComponent<Door>().wasActive = false;
-            }
-            buddy2.SetActive(!buddy2.activeSelf);
+            if (buddy2.GetComponent<Door>().doorOpened)
+                buddy2.GetComponent<Door>().CloseDoor(player.gameObject);
+            else if (!buddy2.GetComponent<Door>().doorOpened)
+                buddy2.GetComponent<Door>().OpenDoor(player.gameObject);
         }
     }
 }

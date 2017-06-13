@@ -5,8 +5,8 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private Animator open;
-    private bool doorOpened;
-    public bool wasActive;
+    public bool doorOpened;
+    public bool wasOpen;
 
     UIController UIText;
     MenuController menuSounds;
@@ -19,9 +19,19 @@ public class Door : MonoBehaviour
         UIText = GameObject.Find("UICtrl").GetComponent<UIController>();
         menuSounds = GameObject.Find("PauseMenuController").GetComponent<MenuController>();
 
-        doorOpened = !gameObject.activeSelf;
-        wasActive = gameObject.activeSelf;
-	}
+        wasOpen = doorOpened;
+
+        if (doorOpened)
+        {
+            OpenDoor(GameObject.FindGameObjectWithTag("Player"));
+        }
+        if (!doorOpened)
+        {
+            CloseDoor(GameObject.FindGameObjectWithTag("Player"));
+            OpenDoor(GameObject.FindGameObjectWithTag("Player"));
+            CloseDoor(GameObject.FindGameObjectWithTag("Player"));
+        }
+    }
 
     private void Update()
     {
@@ -29,9 +39,9 @@ public class Door : MonoBehaviour
         {
             doorOpened = true;
         }
-        if (open.GetCurrentAnimatorStateInfo(0).IsName("DoorIdle") && doorOpened)
+        if(open.GetCurrentAnimatorStateInfo(0).IsName("DoorClose"))
         {
-            Destroy(gameObject);
+            doorOpened = false;
         }
     }
 
@@ -72,12 +82,27 @@ public class Door : MonoBehaviour
 
     public void OpenDoor(GameObject aaron)
     {
-        open.SetTrigger("Open");
+        DoorAnim("Open");
         gameObject.GetComponent<Collider2D>().enabled = false;
         if (aaron.tag == "Player")
         {
-            aaron.GetComponent<Player>().item = aaron;
+            aaron.GetComponent<Player>().item = null;
         }
-        //START HERE
+    }
+
+    public void CloseDoor(GameObject aaron)
+    {
+        Debug.Log("closing");
+        DoorAnim("Close");
+        gameObject.GetComponent<Collider2D>().enabled = true;
+        if (aaron.tag == "Player")
+        {
+            aaron.GetComponent<Player>().item = null;
+        }
+    }
+
+    public void DoorAnim(string state)
+    {
+        open.SetTrigger(state);
     }
 }

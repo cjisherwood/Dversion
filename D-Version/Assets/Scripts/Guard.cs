@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Guard : MonoBehaviour {
 
-    public Vector3 startingPoint;
+    public Vector3 startPoint;
     public float speed;
     private Vector2 velocity = Vector2.zero;
     private GameObject player;
@@ -23,7 +23,9 @@ public class Guard : MonoBehaviour {
 	{
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        startingPoint = transform.position;
+        startPoint = transform.position;
+        oldPosition= startPoint;
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -57,7 +59,7 @@ public class Guard : MonoBehaviour {
         }
         if (Input.GetKey("r"))
         {
-            rb.MovePosition(startingPoint);
+            rb.MovePosition(startPoint);
         }
     }
 

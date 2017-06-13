@@ -167,22 +167,22 @@ public class Player : MonoBehaviour, ICloneable {
                     reset.transform.position = reset.GetComponent<Interaction>().startingPoint;
                     break;
                 case "Door":
-                    if (reset.GetComponent<Door>().wasActive)
+                    if (reset.GetComponent<Door>().wasOpen)
                     {
-                        reset.SetActive(true);
-                        Debug.Log("Hello");
+                        if(!reset.GetComponent<Door>().doorOpened)
+                            reset.GetComponent<Door>().OpenDoor(player.gameObject);
                     }
                     else
                     {
-                        reset.SetActive(false);
-                        Debug.Log(reset.GetComponent<Door>().wasActive);
+                        if (reset.GetComponent<Door>().doorOpened)
+                            reset.GetComponent<Door>().CloseDoor(player.gameObject);
                     }
                     break;
                 case "Switch":
                     //reset switch to default on/off state.
                     break;
                 case "Guard":
-                    reset.transform.position = reset.GetComponent<Guard>().startingPoint;
+                    reset.transform.position = reset.GetComponent<Guard>().startPoint;
                     break;
                 default:
                     Debug.Log("Error: Could not reset: ");

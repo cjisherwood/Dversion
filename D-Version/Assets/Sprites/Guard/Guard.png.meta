@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5763a1440fc218647ab8ffbc06bb7aa4
-timeCreated: 1497313996
+timeCreated: 1497372030
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -194,7 +194,7 @@ TextureImporter:
         serializedVersion: 2
         x: 191
         y: 207
-        width: 29
+        width: 25
         height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -324,7 +324,7 @@ TextureImporter:
         serializedVersion: 2
         x: 216
         y: 160
-        width: 40
+        width: 19
         height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -453,9 +453,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 75
-        y: 77
+        y: 82
         width: 28
-        height: 54
+        height: 49
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,7 +481,7 @@ TextureImporter:
         x: 144
         y: 50
         width: 29
-        height: 49
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -621,7 +621,7 @@ TextureImporter:
       name: Guard_39
       rect:
         serializedVersion: 2
-        x: 140
+        x: 141
         y: 1
         width: 26
         height: 47

@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     public Text unpauseTimer;
 
-    [SerializeField] private MenuController MenuCameraZoom;    
+    MenuController MenuCameraZoom;    
 
     void Start ()
     {
@@ -29,8 +29,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            Debug.Log("Taking p as input");
             if (isPauseOpen)
             {
+                Debug.Log("Closing pause menu");
                 MenuCameraZoom.btnClickSound.Play();
                 MenuCameraZoom.OptionsPlayButton();
                
@@ -42,6 +44,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                Debug.Log("Opening pause menu");
                 MenuCameraZoom.btnClickSound.Play();
                 Time.timeScale = 0;
                 LaunchPauseMenu("Launch");
