@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPauseOpen)
             {
+                MenuCameraZoom.btnClickSound.Play();
                 MenuCameraZoom.OptionsPlayButton();
                
                 StartCoroutine(StartTimer(1));
@@ -41,6 +42,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                MenuCameraZoom.btnClickSound.Play();
                 Time.timeScale = 0;
                 LaunchPauseMenu("Launch");
 
